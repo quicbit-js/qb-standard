@@ -5,12 +5,12 @@
   ```js
   // ✓ ok
   while ((m = text.match(expr))) {
-    // ...
+      // ...
   }
 
   // ✗ avoid
   while (m = text.match(expr)) {
-    // ...
+      // ...
   }
   ```
 
@@ -32,7 +32,7 @@
 
   ```js
     var obj = {
-      message: 'hello',   // ✗ avoid
+        message: 'hello',   // ✗ avoid
     }
   ```
 
@@ -84,9 +84,9 @@
 
   ```js
   label:
-    while (true) {
-      break label     // ✗ avoid
-    }
+      while (true) {
+          break label     // ✗ avoid
+      }
   ```
 
 * **Do not use multiple spaces except for indentation.**

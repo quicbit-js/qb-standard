@@ -2,10 +2,18 @@
 
 The following rules selected from [feross/standard](https://github.com/feross/standard)
 are deemed to be important enough to be *recommended*, meaning they should be 
-scored and reported and generally folllowed, but some deviance from these rules
-is acceptable so long as code is clear and concise and meets strict
-testing requirements.
+scored and reported and generally followed, but if the author feels it is important enough
+in a particular circumstance, she can choose to break standard and take 
+a score penalty according to the violation.  We are always more concerned with
+testing and conciseness of the solution than the format.
 
+
+## Rules That Differ From Standard
+
+Whenever practical, we prefer to stay in line with the
+broader standard.  The following is the very short list of recommendations that differ 
+from [feross/standard](https://github.com/feross/standard) along with  
+explanations.  
 
 * **Use 4 spaces** for indentation.
 
@@ -17,17 +25,40 @@ testing requirements.
   }
   ```
 
-  Note that this indentation recommendation is our only recommended rule that differs from 
-  [feross/standard](https://github.com/feross/standard).  We selected 4 spaces
-  because it works better across languages - a balance between Linux kernel's 
-  8 spaces requirement and js standard's 2 spaces.
+  **Why?**  
+  While 2 spaces might work well for many developers, it can be a harder on the eyes for some.
+  4 spaces is a fair balance between Linux kernel's 8 spaces requirement and js standard's 2 spaces.  
+  Again... as a recommended rule, it can be broken if the author feels a 
+  particular indentation helps for a particular set of files.
   
-  Again, this is just one of our scored *recommendations*, not a 
-  *requirement*.  We believe that an author should be
-  able to choose an indentation level that 
-  works best for their particular software, so long as the indentation is consistent 
-  and the code is clear and concise.
+  Wouldn't tabs solve this problem?  Well, sure, but having 2 types of whitespace
+  can create unwanted surprises. 
+  The benefit of being able to change indentation 
+  per one's preference isn't worth the hassle that can come
+  from different users seeing different alignment, nice though that ability is!
   
+* **Use pascalCase for instance functions and underbar_case for pure functions.**
+  
+  Only use pascalCaseForFunctionsOnObjects that access the 'this' 
+  parameter and use_underscore_for_other_functions.  This helps
+  distinguish between pure functions and object method-like functions.
+  It also allows decent portability of functions into other languages like 
+  C and python.  A good strategy for testing and portability is to place 
+  most of the work and
+  complexity in_pure_functions and write thin object APIs that 
+  use them.
+  
+  ```js
+  class Dog {
+      constructor() {
+            
+      }
+  }
+  ```
+  
+  
+  
+## Rules that match  [feross/standard](https://github.com/feross/standard)
 
 * **Use single quotes for strings** except to avoid escaping.
 
@@ -82,19 +113,19 @@ testing requirements.
   ```js
   // ✓ ok
   if (condition) {
-    // ...
+      // ...
   } else {
-    // ...
+      // ...
   }
   ```
 
   ```js
   // ✗ avoid
   if (condition) {
-    // ...
+      // ...
   }
   else {
-    // ...
+      // ...
   }
   ```
 
@@ -110,14 +141,14 @@ testing requirements.
   ```js
   // ✓ ok
   if (options.quiet !== true) {
-    console.log('done')
+      console.log('done')
   }
   ```
 
   ```js
   // ✗ avoid
   if (options.quiet !== true)
-    console.log('done')
+      console.log('done')
   ```
 
 * **Avoid multiple blank lines.**
@@ -148,13 +179,13 @@ testing requirements.
 
   // ✓ ok
   var location = env.development
-    ? 'localhost'
-    : 'www.api.com'
+      ? 'localhost'
+      : 'www.api.com'
 
   // ✗ avoid
   var location = env.development ?
-    'localhost' :
-    'www.api.com'
+      'localhost' :
+      'www.api.com'
   ```
 
 * **Commas must be placed at the end of the current line.**
@@ -163,13 +194,13 @@ testing requirements.
 
   ```js
     var obj = {
-      foo: 'foo'
-      ,bar: 'bar'   // ✗ avoid
+        foo: 'foo'
+        ,bar: 'bar'   // ✗ avoid
     }
 
     var obj = {
-      foo: 'foo',
-      bar: 'bar'   // ✓ ok
+        foo: 'foo',
+        bar: 'bar'   // ✓ ok
     }
   ```
 
@@ -178,11 +209,11 @@ testing requirements.
   eslint: [`dot-location`](http://eslint.org/docs/rules/dot-location)
 
   ```js
-    console.
-      log('hello')  // ✗ avoid
-
-    console
-      .log('hello') // ✓ ok
+      console.
+          log('hello')  // ✗ avoid
+      
+      console
+          .log('hello') // ✓ ok
   ```
 
 * **No space between function identifiers and their invocations.**
@@ -211,15 +242,15 @@ testing requirements.
 
   ```js
   class Dog {
-    constructor () {
-      super()   // ✗ avoid
-    }
+      constructor () {
+          super()   // ✗ avoid
+      }
   }
 
   class Dog extends Mammal {
-    constructor () {
-      super()   // ✓ ok
-    }
+      constructor () {
+          super()   // ✓ ok
+      }
   }
   ```
 
@@ -249,26 +280,26 @@ testing requirements.
 
   ```js
   switch (filter) {
-    case 1:
-      doSomething()    // ✗ avoid
-    case 2:
-      doSomethingElse()
+      case 1:
+          doSomething()    // ✗ avoid
+      case 2:
+          doSomethingElse()
   }
 
   switch (filter) {
-    case 1:
-      doSomething()
-      break           // ✓ ok
-    case 2:
-      doSomethingElse()
+      case 1:
+          doSomething()
+          break           // ✓ ok
+      case 2:
+          doSomethingElse()
   }
 
   switch (filter) {
-    case 1:
-      doSomething()
-      // fallthrough  // ✓ ok
-    case 2:
-      doSomethingElse()
+      case 1:
+          doSomething()
+          // fallthrough  // ✓ ok
+      case 2:
+          doSomethingElse()
   }
   ```
 
@@ -315,16 +346,16 @@ testing requirements.
 
   ```js
   const user = {
-    name: 'Jane Doe', age: 30,
-    username: 'jdoe86'            // ✗ avoid
+      name: 'Jane Doe', age: 30,
+      username: 'jdoe86'            // ✗ avoid
   }
 
   const user = { name: 'Jane Doe', age: 30, username: 'jdoe86' }    // ✓ ok
 
   const user = {
-    name: 'Jane Doe',
-    age: 30,
-    username: 'jdoe86'
+      name: 'Jane Doe',
+      age: 30,
+      username: 'jdoe86'
   }                                                                 // ✓ ok
   ```
 
@@ -335,12 +366,12 @@ testing requirements.
   ```js
   if (user) {
                               // ✗ avoid
-    const name = getName()
+      const name = getName()
 
   }
 
   if (user) {
-    const name = getName()    // ✓ ok
+      const name = getName()    // ✓ ok
   }
   ```
 
@@ -419,12 +450,12 @@ testing requirements.
   ```js
   // ✓ ok
   ;(function () {
-    window.alert('ok')
+      window.alert('ok')
   }())
 
   // ✗ avoid
   (function () {
-    window.alert('ok')
+      window.alert('ok')
   }())
   ```
 

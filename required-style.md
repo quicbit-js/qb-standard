@@ -48,15 +48,15 @@ violations... we would hope.
   ```js
   // ✓ ok
   run(function (err) {
-    if (err) throw err
-    window.alert('done')
+      if (err) throw err
+      window.alert('done')
   })
   ```
 
   ```js
   // ✗ avoid
   run(function (err) {
-    window.alert('done')
+      window.alert('done')
   })
   ```
 
@@ -101,18 +101,18 @@ violations... we would hope.
 
   ```js
   var person = {
-    set name (value) {    // ✗ avoid
-      this.name = value
-    }
+      set name (value) {    // ✗ avoid
+          this.name = value
+      }
   }
 
   var person = {
-    set name (value) {
-      this.name = value
-    },
-    get name () {         // ✓ ok
-      return this.name
-    }
+      set name (value) {
+          this.name = value
+      },
+      get name () {         // ✓ ok
+          return this.name
+      }
   }
   ```
 
@@ -131,15 +131,15 @@ violations... we would hope.
 
   ```js
   function foo (n) {
-    if (n <= 0) return
-
-    arguments.callee(n - 1)   // ✗ avoid
+      if (n <= 0) return
+  
+      arguments.callee(n - 1)   // ✗ avoid
   }
 
   function foo (n) {
-    if (n <= 0) return
-
-    foo(n - 1)
+      if (n <= 0) return
+    
+      foo(n - 1)
   }
   ```
 
@@ -167,15 +167,15 @@ violations... we would hope.
 
   ```js
   if (false) {    // ✗ avoid
-    // ...
+      // ...
   }
 
   if (x === 0) {  // ✓ ok
-    // ...
+      // ...
   }
 
   while (true) {  // ✓ ok
-    // ...
+      // ...
   }
   ```
 * **No control characters in regular expressions.**
@@ -193,8 +193,8 @@ violations... we would hope.
 
   ```js
   function sum (a, b) {
-    debugger      // ✗ avoid
-    return a + b
+      debugger      // ✗ avoid
+      return a + b
   }
   ```
 
@@ -213,11 +213,11 @@ violations... we would hope.
 
   ```js
   function sum (a, b, a) {  // ✗ avoid
-    // ...
+      // ...
   }
 
   function sum (a, b, c) {  // ✓ ok
-    // ...
+      // ...
   }
   ```
 
@@ -227,8 +227,8 @@ violations... we would hope.
 
   ```js
   class Dog {
-    bark () {}
-    bark () {}    // ✗ avoid
+      bark () {}
+      bark () {}    // ✗ avoid
   }
   ```
 
@@ -238,8 +238,8 @@ violations... we would hope.
 
   ```js
   var user = {
-    name: 'Jane Doe',
-    name: 'John Doe'    // ✗ avoid
+      name: 'Jane Doe',
+      name: 'John Doe'    // ✗ avoid
   }
   ```
 
@@ -249,9 +249,9 @@ violations... we would hope.
 
   ```js
   switch (id) {
-    case 1:
-      // ...
-    case 1:     // ✗ avoid
+      case 1:
+          // ...
+      case 1:     // ✗ avoid
   }
   ```
 
@@ -288,15 +288,15 @@ violations... we would hope.
 
   ```js
   try {
-    // ...
+      // ...
   } catch (e) {
-    e = 'new value'             // ✗ avoid
+      e = 'new value'             // ✗ avoid
   }
 
   try {
-    // ...
+      // ...
   } catch (e) {
-    const newVal = 'new value'  // ✓ ok
+      const newVal = 'new value'  // ✓ ok
   }
   ```
 
@@ -314,11 +314,11 @@ violations... we would hope.
 
   ```js
   const name = function () {
-    getName()
+      getName()
   }.bind(user)    // ✗ avoid
 
   const name = function () {
-    this.getName()
+      this.getName()
   }.bind(user)    // ✓ ok
   ```
 
@@ -329,12 +329,12 @@ violations... we would hope.
   ```js
   const result = true
   if (!!result) {   // ✗ avoid
-    // ...
+      // ...
   }
 
   const result = true
   if (result) {     // ✓ ok
-    // ...
+      // ...
   }
   ```
 
@@ -345,7 +345,7 @@ violations... we would hope.
   ```js
   var score = 100
   function game () {
-    score: 50         // ✗ avoid
+      score: 50         // ✗ avoid
   }
   ```
 
@@ -381,7 +381,7 @@ violations... we would hope.
 
   ```js
   if (authenticated) {
-    function setAuthUser () {}    // ✗ avoid
+      function setAuthUser () {}    // ✗ avoid
   }
   ```
 
@@ -416,13 +416,13 @@ violations... we would hope.
 
   ```js
   function myFunc () {
-    {                   // ✗ avoid
-      myOtherFunc()
-    }
+      {                   // ✗ avoid
+          myOtherFunc()
+      }
   }
 
   function myFunc () {
-    myOtherFunc()       // ✓ ok
+      myOtherFunc()       // ✓ ok
   }
   ```
 
@@ -540,11 +540,11 @@ violations... we would hope.
 
   ```js
   function sum (a, b) {
-    return result = a + b     // ✗ avoid
+      return result = a + b     // ✗ avoid
   }
 
   function sum (a, b) {
-    return (result = a + b)   // ✓ ok
+      return (result = a + b)   // ✓ ok
   }
   ```
 
@@ -599,10 +599,10 @@ violations... we would hope.
 
   ```js
   class Dog extends Animal {
-    constructor () {
-      this.legs = 4     // ✗ avoid
-      super()
-    }
+      constructor () {
+          this.legs = 4     // ✗ avoid
+          super()
+      }
   }
   ```
 
@@ -654,8 +654,8 @@ violations... we would hope.
 
   ```js
   function doSomething () {
-    return true
-    console.log('never called')     // ✗ avoid
+      return true
+      console.log('never called')     // ✗ avoid
   }
   ```
 
@@ -665,11 +665,11 @@ violations... we would hope.
 
   ```js
   try {
-    // ...
+      // ...
   } catch (e) {
-    // ...
+      // ...
   } finally {
-    return 42     // ✗ avoid
+      return 42     // ✗ avoid
   }
   ```
 
@@ -704,8 +704,8 @@ violations... we would hope.
 
   ```js
   class Car {
-    constructor () {      // ✗ avoid
-    }
+      constructor () {      // ✗ avoid
+      }
   }
   ```
 
