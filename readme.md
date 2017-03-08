@@ -95,14 +95,20 @@ Requirements for both branch and line coverage are:
 Test coverage below 96% is an outright Quicbit standards violation. 
 
 **Having trouble achieving these levels of coverage?**
-... then take a hard look
-at the code in question - is it employing stateless functions for 
-complex logic so that it can be easily tested?  Do the tests use 
-[data-driven tools and techniques](https://github.com/quicbit-js/test-kit) to ease the 
-burden of writing comprehensive test cases?  Is complex logic 
-tightly integrated with objects that require heavy amount of 
-state and mocking?  Then consider moving the that logic into testable functions
-which is then used by the classes. 
+... then take a careful look at the code in question -
+ 
+* Does the code employ stateless functions for 
+  complex logic so that it can be easily tested?  
+* Do tests use 
+  [data-driven tools and techniques](https://github.com/quicbit-js/test-kit) to ease the 
+  burden of writing comprehensive test cases?  
+* Is complex logic 
+  tightly integrated with objects that require heavy amount of 
+  state and mocking?  Try moving this logic into testable functions
+  which is then used by the classes.
+* Can't trigger a safety assertion?  Consider moving logic into small modules
+  where all cases can be tried.
+
 
 Just like 
 [style standards allow you to silence warnings](https://github.com/feross/standard#how-do-i-hide-a-certain-warning) with
