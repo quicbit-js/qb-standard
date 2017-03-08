@@ -184,8 +184,11 @@ they become more mature.
 
 ## Format and Style
 
-Quicbit style standard is loosely based on the [feross/standard](https://github.com/feross/standard).
-
+Quicbit style standard is loosely based on the 
+[feross/standard](https://github.com/feross/standard). However, there are 
+differences in the focus and in what is required versus scored/encouraged...
+ 
+ 
 1. Quicbit recognizes an author's preference to a greater
    degree than most other styles. Style rules are stated as either *recommended*
    or *must* (required).
