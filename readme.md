@@ -34,17 +34,17 @@ and thought-provoking.
 **Inversion of Strictness of Style and Testing**
 
 Many standards today loosely enforce testing with a recommended score
-and then enforce style guidelines strictly using lint or 
-similar tool.
+and then enforce style, including format guidelines strictly using lint or 
+similar tool requiring 100% compliance.
 
 **qb-standard** inverts this traditional emphasis so that:
 
 * test coverage is strictly enforced 
-* style violations are loosely scored and tracked
+* format rules can be violated and are scored and tracked (style rules involving
+  clear safety and quality issues are, however, required)
 
-
-qb-standard emphasis is in line with what is most important to successful
-code and projects.  Untested code is a serious risk and very difficult to manage 
+qb-standard emphasis on testing is in line with what is most important to successful
+projects.  Untested code is a serious risk and very difficult to manage 
 while non-standard braces placement and indentation,
 while worthy of some negative attention through scoring, are less serious.
 
