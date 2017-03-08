@@ -62,12 +62,12 @@ weight, well tested code should:
 
 **Emphasis on Consistency**
 
-qb-standard allocates a greater penalty for inconsistency than for other types of 
+qb-standard uses scoring that attributes a greater penalty for inconsistency than for other types of 
 violations which can make it easier to spot unintended changes.
 
 For example, non-standard but consistent indentation throughout a file will cost some style points, 
-but different levels of indentation to the same file incurs a heavier score penalty.
-Emphasis on consistency in scores helps catch conflicting styles when
+but different levels of indentation within the same file incurs a heavier penalty.
+Emphasis on consistency in scores can help catch conflicting styles when
 they get introduced.
 
 **Awareness of Dependencies**
