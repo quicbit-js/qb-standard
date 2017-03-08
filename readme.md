@@ -93,7 +93,7 @@ Requirements for both branch and line coverage are:
     Below 100%                       Caution - missing coverage   (yellow)
     Below 97%                        Not covered. Not standard    (red)
 
-Test coverage below 96% is an outright Quicbit standards violation. 
+Test coverage below 97% is an outright Quicbit standards violation. 
 
 **Having trouble achieving these levels of coverage?**
 ... then take a careful look at the code in question -
