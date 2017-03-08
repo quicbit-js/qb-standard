@@ -50,12 +50,30 @@ explanations.
   
   ```js
   class Dog {
-      constructor() {
-            
+      constructor (breed) {
+          this.breed = breed
+          //...
+      }
+      chaseTail (radians) {
+          //...
+      }
+      fetchStick (stick) {
+          let dist = object_distance(this, stick) 
+          // ...
       }
   }
-  ```
+
   
+  function object_distance(obj1, obj2) {
+      // ...  
+  }
+
+  // exported functions are   
+  module.exports = {
+      object_distance,
+      create_dog: (breed) => { return new Dog(breed) }
+  }
+  ```
   
   
 ## Rules that match  [feross/standard](https://github.com/feross/standard)
