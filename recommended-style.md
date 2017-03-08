@@ -37,7 +37,7 @@ explanations.
   per one's preference isn't worth the hassle that can come
   from different users seeing different alignment, nice though that ability is!
   
-* **Use pascalCase for instance functions and underbar_case for pure functions.**
+* **Use pascalCase for instance functions and underscore_case for pure functions.**
   
   Only use pascalCaseForFunctionsOnObjects that access the 'this' 
   parameter and use_underscore_for_other_functions.  This helps
