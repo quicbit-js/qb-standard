@@ -110,7 +110,7 @@ differences in the focus and in what is required versus scored/encouraged...
    
    Some developers hate one-line functions because they are difficult to debug, but
    remember that when we shift our concern to having 100% line and branch
-   test coverage, debuggable layouts become much less relevant. 
+   test coverage, debuggable layouts become less important. 
    
 ### Indent with Spaces
 
@@ -150,7 +150,7 @@ break the layout pattern without even knowing it.
 
 ```javascript
 
-    if (a == 4) {
+    if (a === 4) {
        //...
     }
 ```
