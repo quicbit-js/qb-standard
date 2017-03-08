@@ -88,15 +88,11 @@ Above all, create software that is simple, clean and understandable.
 In Quicbit, 100% or very near 100% branch and line coverage is a requirement.
 Requirements for both branch and line coverage are:
 
-    From 100%                 OK                           (green)
-    From 97 to less than 100  Caution - missing coverage   (yellow)
-    Below 97%                 Not covered. Not standard    (red)
+    100%                             OK                           (green)
+    Below 100%                       Caution - missing coverage   (yellow)
+    Below 97%                        Not covered. Not standard    (red)
 
-Test coverage below 97% is an outright Quicbit standards violation, 
-while style transgressions are scored by lint and a 
-"passing style score" can be worked out by the author and
-teams involved.  
-
+Test coverage below 96% is an outright Quicbit standards violation. 
 
 **Having trouble achieving these levels of coverage?**
 ... then take a hard look
