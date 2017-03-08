@@ -1,9 +1,11 @@
 # Recommended Style
 
-Indentation recommendation is the only recommended rule that differs from 
-[feross/standard](https://github.com/feross/standard).  We select 4 spaces
-because it works better across languages - a balance between Linux kernel's 
-8 spaces requirement and js standard's 2 spaces.
+The following rules selected from [feross/standard](https://github.com/feross/standard)
+are deemed to be important enough to be *recommended*, meaning they should be 
+scored and reported and generally folllowed, but some deviance from these rules
+is acceptable so long as code is clear and concise and meets strict
+testing requirements.
+
 
 * **Use 4 spaces** for indentation.
 
@@ -14,12 +16,18 @@ because it works better across languages - a balance between Linux kernel's
       console.log('hi', name)
   }
   ```
+
+  Note that this indentation recommendation is our only recommended rule that differs from 
+  [feross/standard](https://github.com/feross/standard).  We selected 4 spaces
+  because it works better across languages - a balance between Linux kernel's 
+  8 spaces requirement and js standard's 2 spaces.
   
-The following rules selected from [feross/standard](https://github.com/feross/standard)
-are deemed to be important enough to be *recommended*, meaning they should be 
-scored and reported and generally folllowed, but some deviance from these rules
-is acceptable so long as code is clear and concise and meets strict
-testing requirements.
+  Again, this is just one of our scored *recommendations*, not a 
+  *requirement*.  We believe that an author should be
+  able to choose an indentation level that 
+  works best for their particular software, so long as the indentation is consistent 
+  and the code is clear and concise.
+  
 
 * **Use single quotes for strings** except to avoid escaping.
 
