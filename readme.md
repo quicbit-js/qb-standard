@@ -15,7 +15,7 @@ we are following, though enforcement be through clunky and manual processes
 at the moment.
 
 The 100% 
-test coverage requirement is real and active.  We use tap coverage options
+test coverage requirement is real and active.  We use tap --coverage option
 to watch coverage with each release.  With the help of 
 [test-kit](https://github.com/quicbit-js/test-kit) and
 with practice, the cost of achieving near 100% coverage on all 
@@ -24,7 +24,6 @@ especially in light of the benefits that it brings requiring less stringency
 and work elsewhere.  [quickbit-js](https://github.com/quicbit-js) has several 
 [examples](https://github.com/quicbit-js/qb-json-tok/blob/master/test.js) of 
 100% code coverage using data-driven testing.
-
 
 We hope you find this document useful, or at least some of the ideas interesting
 and thought-provoking.
@@ -39,11 +38,10 @@ similar tool requiring 100% compliance.
 
 **qb-standard** inverts this traditional emphasis so that:
 
-* test coverage is strictly enforced 
-* format rules can be violated and are scored and tracked (style rules involving
-  clear safety and quality issues are, however, required)
+* test coverage is strictly enforced (like lint)
+* style rules, other than the most obviously beneficial safety checks, are scored and tracked 
 
-qb-standard emphasis on testing is in line with what is most important to successful
+qb-standard emphasis on testing is in line with what is important to successful
 projects.  Untested code is a serious risk and very difficult to manage 
 while non-standard braces placement and indentation,
 while worthy of some negative attention through scoring, are less serious.
@@ -60,9 +58,9 @@ weight, well tested code should:
 1. not be overly concerned with catching and preventing bugs by hand or by eye
 1. not be as draconian with style as we are with testing and dependency requirements
 
-**Emphasis on Consistency**
+**Consistency Scores**
 
-qb-standard uses scoring that attributes a greater penalty for inconsistency than for other types of 
+qb-standard uses scores that attribute greater penalty for inconsistency than for other types of 
 violations which can make it easier to spot unintended changes.
 
 For example, non-standard but consistent indentation throughout a file will cost some style points, 
@@ -70,12 +68,15 @@ but different levels of indentation within the same file incurs a heavier penalt
 Emphasis on consistency in scores can help catch conflicting styles when
 they get introduced.
 
-**Awareness of Dependencies**
+(Tooling for this is clunky at the moment... not publicly available)
+
+**Dependency Scores**
 
 Quicbit standard requires that the incremental cost of a module is
 measured and recorded with each change, this includes tracking cost of both 
-production code 
-*and* build tool dependencies.
+production code *and* build tool dependencies.
+
+(Tooling for this is clunky at the moment... not publicly available)
 
 # The Standard
 
