@@ -120,34 +120,11 @@ Quicbit files *must* use spaces, not tabs.
   * 4 space indentation is a fair compromise between linux kernel 8-space standard 
     and javascript 2-space standards.
 
-Why not tabs?  Because using fixed
-indentation allows authors to layout code in an intended way:
-
-```javascript
-        //...
-        if (prev_tok === COLON) {                                     // string-value-pair
-            ret = cb(buf, si, slen, tok, vi, idx - vi, err_info)
-        } else {
-            ret = cb(buf, -1, 0, QUOTE, si, slen)                      
-            if (ret > 0) {                                            // cb requested index
-                idx = ret
-                si = -1
-                slen = 0                                              
-            } else if (ret === 0) {
-                ret = si + slen                                       // cb requested stop
-            }
-        }
-        /...
-```
-
-... the alignment of comments down the right may be more clear in this case.
-
-Not everyone feels the same way about readability and you may feel the
-above sample would be better using some other form without the comments on the right, but
-the *allowing the author to create a meaningful alignment* is still important.
-If we used tabs, then someone editing using tabs set to 3 would likely
-break the layout pattern without even knowing it.
-
+Why not tabs?  Because having only one type of white space eliminates a set
+of surprises and the annoyance of having to deal with both across
+a codebase and it allows the author to create a consistent layout that is consistent
+for all viewers.  Admittedly being able to change indentation is a nice feature
+of tabs, but not as important as these other factors.
 
 ### Place braces '{' at the end of line
 
