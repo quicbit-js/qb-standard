@@ -125,16 +125,19 @@ indentation allows authors to layout code in an intended way:
 
 ```javascript
         //...
+        if (prev_tok === COLON) {                                     // string-value-pair
+            ret = cb(buf, si, slen, tok, vi, idx - vi, err_info)
         } else {
-            if(prev_tok === COLON) {                                    // string-value-pair
-                ret = cb(buf, si, slen, tok, vi, idx - vi, err_info)
-            } else {
-                ret = cb(buf, -1, 0, QUOTE, si, slen)                      
-                if(ret > 0) {
-                    idx = ret || idx; si = -1; slen = 0; continue       // cb requested index
-                } else if (ret === 0) {
-                    return si + slen                                    // cb requested stop
-                }
+            ret = cb(buf, -1, 0, QUOTE, si, slen)                      
+            if (ret > 0) {
+                idx = ret
+                si = -1
+                slen = 0                                              // cb requested index
+            } else if (ret === 0) {
+                ret = si + slen                                       // cb requested stop
+            }
+        }
+        /...
 ```
 
 ... the alignment of comments down the right may be more clear in this case.
