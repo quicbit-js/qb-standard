@@ -184,7 +184,10 @@ they become more mature.
 
 ## Format and Style
 
-qb-standard-styles are based on the 
+Quickbit style standards are based on the 
 [feross/standard](https://github.com/feross/standard). However, there are 
-differences in the focus and in what is required versus scored/encouraged...
+differences in the focus and in what is required versus scored/encouraged:
+
+
+[Quicbit Style Standards](https://github.com/quicbit-js/qb-standard/blob/master/qb-standard-styles.md) 
  
