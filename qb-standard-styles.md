@@ -129,10 +129,10 @@ indentation allows authors to layout code in an intended way:
             ret = cb(buf, si, slen, tok, vi, idx - vi, err_info)
         } else {
             ret = cb(buf, -1, 0, QUOTE, si, slen)                      
-            if (ret > 0) {
+            if (ret > 0) {                                            // cb requested index
                 idx = ret
                 si = -1
-                slen = 0                                              // cb requested index
+                slen = 0                                              
             } else if (ret === 0) {
                 ret = si + slen                                       // cb requested stop
             }
