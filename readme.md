@@ -235,25 +235,28 @@ differences in the focus and in what is required versus scored/encouraged...
    
    The following functions are **NOT OK** because they are too wordy.  
    The long parameter names make too big a deal of a very simple algorithm:
-   
-       function padright(aString, desiredLength) {
-           while(aString.length < desiredLength) {
-               aString += ' '  
-           }
-           return aString
-       }
-       
-       function padleft(aString, desiredLength) {
-           while(aString.length < desiredLength) {
-               aString = ' ' + aString 
-           }
-           return aString
-       }
-       
+        
+```javascript
+    function padright(aString, desiredLength) {
+        while(aString.length < desiredLength) {
+            aString += ' '  
+        }
+        return aString
+    }
+    
+    function padleft(aString, desiredLength) {
+        while(aString.length < desiredLength) {
+            aString = ' ' + aString 
+        }
+        return aString
+    }
+```
+        
    This next example is fine because it uses the parameter glossary to reduce
    the read burden.  Notice how we can discern the algoritm similarities and 
    differences more quickly.
    
+```javascript
        function padright(s, len) {
            while(s.length < len) { 
                s += ' ' 
@@ -267,14 +270,17 @@ differences in the focus and in what is required versus scored/encouraged...
            } 
            return s
        }
+```
 
    The following example shows why we want to empower our author to break 
    a recommended rule when it improves clarity.  An author may want to 
    show how simple and similar these functions by lining them
    up like so:
 
+```javascript
        function padright (s, l) { while(s.length < l) s = s + ' '; return s }
        function padleft  (s, l) { while(s.length < l) s = ' ' + s; return s }
+```
        
    The author changed spacing after the function name as well as the 
    change to padright 
@@ -302,7 +308,8 @@ Quicbit files *must* use spaces, not tabs.
 Why not tabs?  Because using fixed
 indentation allows authors to layout code in an intended way:
 
-        ...
+```javascript
+        //...
         } else {
             if(prev_tok === COLON) {                                    // string-value-pair
                 ret = cb(buf, si, slen, tok, vi, idx - vi, err_info)
@@ -313,7 +320,7 @@ indentation allows authors to layout code in an intended way:
                 } else if (ret === 0) {
                     return si + slen                                    // cb requested stop
                 }
-
+```
 
 ... the alignment of comments down the right may be more clear in this case.
 
@@ -325,9 +332,12 @@ break the layout pattern without even knowing it.
 
 ### Place braces '{' at the end of line
 
-    if (a = 4) {
-       ...
+```javascript
+
+    if (a == 4) {
+       //...
     }
+```
 
 ### Semicolons
 
