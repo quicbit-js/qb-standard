@@ -135,8 +135,7 @@ explanations.
   At the same time, we recognize that some developers will find a small
   amount of satisfaction choosing local variables that works best for 
   them.  Our primary objective is not to make all code look exactly the same, but to 
-  enforce standards that  
-  make a real differences in productivity.
+  enforce standards that make a real difference in productivity.
   
   Can you be aware of and sensitive to the local 
   variable naming style of your fellow programmers when working in 
