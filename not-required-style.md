@@ -1,3 +1,39 @@
+# Changed from standard
+
+Two rules were changed from [feross/standard](https://github.com/feross/standard) :
+
+* **Use 2 spaces** for indentation.
+
+  eslint: [`indent`](http://eslint.org/docs/rules/indent)
+
+  ```js
+  function hello (name) {
+    console.log('hi', name)
+  }
+  ```
+
+  [qb-standard recommends 4 spaces](https://github.com/quicbit-js/qb-standard/blob/master/recommended-style.md)
+  
+* **Use camelcase when naming variables and functions.**
+
+  eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase)
+
+  ```js
+    function my_function () { }    // ✗ avoid
+    function myFunction () { }     // ✓ ok
+
+    var my_var = 'hello'           // ✗ avoid
+    var myVar = 'hello'            // ✓ ok
+  ```
+
+  [qb-standard recommends underscore_words for some cases](https://github.com/quicbit-js/qb-standard/blob/master/recommended-style.md)
+
+
+# Dropped from standard
+
+The following rules from [feross/standard](https://github.com/feross/standard) 
+were dropped
+
 * **Wrap conditional assignments** with additional parentheses. This makes it clear that the expression is intentionally an assignment (`=`) rather than a typo for equality (`===`).
 
   eslint: [`no-cond-assign`](http://eslint.org/docs/rules/no-cond-assign)
@@ -12,18 +48,6 @@
   while (m = text.match(expr)) {
       // ...
   }
-  ```
-
-* **Use camelcase when naming variables and functions.**
-
-  eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase)
-
-  ```js
-    function my_function () { }    // ✗ avoid
-    function myFunction () { }     // ✓ ok
-
-    var my_var = 'hello'           // ✗ avoid
-    var myVar = 'hello'            // ✓ ok
   ```
 
 * **Trailing commas not allowed.**
@@ -97,4 +121,3 @@
   const id =    1234    // ✗ avoid
   const id = 1234       // ✓ ok
   ```
-

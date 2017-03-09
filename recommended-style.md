@@ -26,27 +26,21 @@ explanations.
   ```
 
   **Why?**  
-  While 2 spaces might work well for many developers, it can be a harder on the eyes for some.
+  While 2 spaces might work for many developers, it can be a harder on the eyes for some.
   4 spaces is a fair balance between Linux kernel's 8 spaces requirement and js standard's 2 spaces.  
   Again... as a recommended rule, it can be broken if the author feels a 
   particular indentation helps for a particular set of files.
   
-  Wouldn't tabs solve this problem?  Well, sure, but having 2 types of whitespace
-  can create unwanted surprises. 
+  Wouldn't tabs solve this problem?  Well, yes, but having two types of whitespace
+  creates unwanted surprises. 
   The benefit of being able to change indentation 
   per one's preference isn't worth the hassle that can come
   from different users seeing different alignment, nice though that ability is!
   
-* **Use pascalCase for instance functions and underscore_case for pure functions.**
+* **Use pascalCase for object functions and underscore_words for stand-alone functions.**
   
-  Only use pascalCaseForFunctionsOnObjects that access the 'this' 
-  parameter and use_underscore_for_other_functions.  This helps
-  distinguish between pure functions and object method-like functions.
-  It also allows decent portability of functions into other languages like 
-  C and python.  A good strategy for testing and portability is to place 
-  most of the work and
-  complexity in_pure_functions and write thin object APIs that 
-  use them.
+  Use pascalCaseForObjectFunctions that access the 'this' 
+  parameter and use_underscore_words for other functions.  
   
   ```js
   class Dog {
@@ -68,14 +62,88 @@ explanations.
       // ...  
   }
 
-  // exported functions are   
   module.exports = {
       object_distance,
       create_dog: (breed) => { return new Dog(breed) }
   }
   ```
+  Why? Using underscore_words helps with portability to C and Python.
+  Using pascalCase for classes helps with portability to Java
+  and is consistent with most javascript.
   
+  It is also helpful to distinguish stand-alone and pure functions from 
+  object functions.
   
+* **Use underscore_words for properties and parameters** that might 
+    be seen outside of code.
+
+  ```js
+  // public settings exposed in the world
+  let settings = {
+      valueOne: 1,      // ✗ avoid
+      value_two: 2      // ✓ ok
+  }
+  ```
+  
+  This includes function parameters in APIs, restful JSON interfaces
+  and so on.
+  
+  **Why?**
+  pascalCaseProperties and parameters work well
+  as symbols in code but tend to
+  go awry when they go forth into the world in public settings, 
+  JSON, urls, file names, etc.
+  Symbols in pascalCase can't be easily indexed or split or managed
+  in any way other than lump-identities whose case must be 
+  maintained.  On the other hand, underscore_words can
+  function effectively in other contexts and whether case information 
+  is present or not.  
+    
+* **Use either pascalCase or underscore_words for local parameters
+    and variables** a.k.a.
+  "the awareness and sensitivity standard"
+  
+  pascalCase and underscore_words are both legitimate styles for
+  local parameters and variables.
+  
+  As a software developer, one should feel quite capable of
+  working with either and both these formats without blinking (or scoffing).
+  
+  ```js
+  function launch(client_name, port) {        // ✓ ok
+      let a_value = 0                         // ✓ ok
+      //...
+  }
+
+  // in another file...
+  function process(clientName, port) {        // ✓ ok
+      let aValue = 0                          // ✓ ok
+  }
+  ```
+
+  qb-standard *recommends* that whichever naming approach is used be kept 
+  consistent throughout a module.
+
+  **Why leave this item open?**  Won't developers quarrel over it?
+  
+  We certainly hope not.  We feel that acknowledging which standards are unimportant
+  is itself important.  While we recognize the importance of 
+  standards that govern names of
+  functions, prototypes, modules, and constants, we feel that 
+  standards governing the choice of local variable names of very little value.
+
+  At the same time, we recognize that some developers will find a small
+  amount of satisfaction choosing local variables that works best for 
+  them.  Our primary object is not to make all code look exactly the same, but to 
+  enforce standards that  
+  make a real differences in productivity.
+  
+  Can you be aware of and sensitive to the local 
+  variable naming style of your fellow programmers when working in 
+  a file they created?  We leave this standard slightly open to acknowledge 
+  that this sensitivity and flexibility
+  is as important as any rule you may find in the standard.
+
 ## Rules that match  [feross/standard](https://github.com/feross/standard)
 
 * **Use single quotes for strings** except to avoid escaping.
