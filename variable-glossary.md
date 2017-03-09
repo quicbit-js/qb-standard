@@ -1,19 +1,21 @@
-# Parameter Glossary
+# Variable Glossary
 
-## Why have a glossary of parameter names?
+## Why have a glossary of parameter and variable names?
 
-With the creation of many small modules comes a challenge - how do we
-keep consistency among them?  A simple glossary of the most common 
-parameter names can keep code concise and speed up understanding of
-function signatures.  Using the glossary certainly isn't mandatory, it's just
-a tool to consolidate terms across a large number of module functions.
+A glossary of the most common 
+variable and parameter names can reduce time to understand function
+signatures and implementations.  
+Using the glossary isn't mandatory, it's just
+a tool to consolidate terms across a large number of 
+modules and functions.
 
-Classically trained OO programmers sometimes suggest replacing the glossary
-with objects that capture the glossary of terms in methods.  But doing 
-this adds a layer of obscurity and creates a burden on readers 
-to learn non-trivial and non-standard types.  Arrays, strings 
-and plain objects are transparent and well-understood and so preferred when 
-they can do the job.
+Programmers well-versed in OO methodology might suggest replacing 
+parameter conventions like **src**, **off**, and **lim** with objects
+that capture these concepts in methods.  But wrappers introduce the
+burden of wrapping and unwrapping as well as a burden on the reader 
+to learn non-standard and non-trivial types.  Arrays, strings and
+plain objects are preferred for their simplicity,
+transparency and ubiquity.
 
 ## Why so curt?
 
@@ -30,7 +32,7 @@ illegal utf8 bytes found in an input array:
 ```js
 
 const LEFT_BIT_MASK = 0x80
-const LEFT_2BIT_MASK = 0xC0
+const LEFT_2_BIT_MASK = 0xC0
 
 module.exports = function (inputArray, fromIndex, upToIndex) {
     upToIndex = upToIndex == null ? inputArray.length : upToIndex
@@ -45,9 +47,9 @@ module.exports = function (inputArray, fromIndex, upToIndex) {
         }
 
         // non-ascii (2 or more bytes)
-        var start = index
+        var startIndex = index
         var nextCharacter = inputArray[index++]
-        if (nextCharacter >= LEFT_2BIT_MASK) {
+        if (nextCharacter >= LEFT_2_BIT_MASK) {
             // trailing bytes
 
             // count sequential 1's: 11xxxxxx
@@ -55,26 +57,26 @@ module.exports = function (inputArray, fromIndex, upToIndex) {
                 numberOfBytes++
             }
             // skip trailing bytes
-            while (index < upToIndex && (inputArray[index] & LEFT_2BIT_MASK) === LEFT_BIT_MASK) {
+            while (index < upToIndex && (inputArray[index] & LEFT_2_BIT_MASK) === LEFT_BIT_MASK) {
                 index++
             }
-            if (index - start !== numberOfBytes) {
-                if (index - start > numberOfBytes) {
+            if (index - startIndex !== numberOfBytes) {
+                if (index - startIndex > numberOfBytes) {
                     // excess trailing bytes
-                    returnValue.push([start + numberOfBytes, index])
+                    returnValue.push([startIndex + numberOfBytes, index])
                 } else {
                     // not enough trailing bytes
-                    returnValue.push([start, index])
+                    returnValue.push([startIndex, index])
                 }
             }
         } else {
             // unexpected trailing byte
-            
-            while (index < upToIndex && (inputArray[index] & LEFT_2BIT_MASK) === LEFT_BIT_MASK) {
+
+            while (index < upToIndex && (inputArray[index] & LEFT_2_BIT_MASK) === LEFT_BIT_MASK) {
                 index++
             }
             // skip all trailing bytes
-            returnValue.push([start, index])
+            returnValue.push([startIndex, index])
         }
     }
     return returnValue
@@ -93,7 +95,7 @@ function illegal_utf8 (src, off, lim) {
 
     var ret = []
     while (i < lim) {
-        while (src[i] < 0x80) { if (++i === lim) return ret }   // skip ascii
+        while (src[i] < 0x80) { if (++i === lim) return ret }       // skip ascii
 
         // non-ascii (2 or more bytes)
         var start = i
@@ -112,23 +114,32 @@ function illegal_utf8 (src, off, lim) {
         } else {                                                    
             // unexpected trailing byte        
             while (i < lim && (src[i] & 0xC0) === 0x80) { i++ }
-            ret.push([start, i])                                    // skip all trailing bytes
+            ret.push([start, i])                                    // skip trailing bytes
         }
     }
     return ret
 }
-
 ```
 
-While the parameter names might be nicer to read for a newbie in the first 
-example, understanding the actual logic and making improvements 
-is far easier in the shorter version.  qb-standard is more concerned with
-those who need to know the logic, not those casually perusing method signatures -
-that's what the readme is for.
+While long parameters and variable names in the first example might provide 
+an easy superficial read, the actual logic is clearer in 
+the short version.  Those who are reading the code need to know the logic.  Those
+want to peruse function signatures are usually better off going through a readme and
+examples.
 
-Someone who has worked with Quicbit APIs in the past will very quickly recognize
-the function signature as a common way of passing [source]() array with an
-[offset]() and [limit]().
+Also notice how parameters like **src** and **lim** are plugged directly
+into the algorithm several times.  The parameter name length affects conciseness
+as well.  Alternatively we could reassign parameters to shorter names at the beginning
+of the function, 
+but gratuitous levels of reassignment are another sort of badness.  Direct
+is good.  Short is good.  Consistency (e.g. with help of glossary) can help us 
+against the obscurity of these short names and the more we practice it the easier it gets.
+
+In this example, there is also a good chance that a reader familiar with other
+quicbit functions will quickly recognize
+that function takes an array-like 
+source ([src]()) with an inclusive lower-bound offset ([off]()) and exclusive
+upper-bound limit ([lim]()).
 
 **Bitmask literals?**  Isn't that heresy?!!  Not to us.  *The most important aspects
 of this function is that it is clearly written, has 100% branch and line test coverage, 
@@ -136,6 +147,13 @@ is very tiny with no library dependencies, runs fast and is
 documented with clear examples in the readme file*.  Those things are important.
 
 ## Arrays
+
+Why all the focus on arrays and indexes?  
+What about filter(), map(), reduce(), forEach()...?   
+
+Array methods are fine when we aren't iterating over large byte arrays, 
+but when we do work with large data arrays, traditional iteration can
+be far faster.
 
 ### src (source)
 
@@ -189,7 +207,7 @@ function copy (src, off, lim, dst) {
 }
 ```
 
-### len (length)
+### l, len (length)
 
 The number of bytes to process in a [src]() or [dst]() array.
 
@@ -202,9 +220,31 @@ function scan (src, off, lim) {
 }
 ```
 
-We typically prefer [lim]() because it is more direct, but len is a good
-common shorthand when we want number of bytes processed.
+So which is it, copy(src, off, **lim**) or copy(src, off, **len**)?
 
+When working with a stacks of calls that operate on array ranges, we usually find
+functions with [lim]() to be more direct than [len]().  On the other hand, 
+functions with the [len]() signature can be simpler when 
+not already managing arrays and offsets.
+
+### i, si, di... (array indexes)
+
+Usually we use 'i' or, where there are multiple loops, two initials ending with 'i'.
+
+```js
+function repeat (s, dst, off, lim) {
+    var scodes = s.map((c) => c.charCodeAt(0))
+    var slen = s.length
+    
+    for (var di = off; di < lim; di++) {
+        // in actual implementation, we might handle bounds etc...
+        for (var si = 0; si < slen; si++) {
+            dst[di + si] = scodes[si]
+        }
+    }
+    // ...
+}
+```
 
 ## General
 
@@ -218,13 +258,12 @@ in a final step) is often called 'ret'.
 A common choice for an input value that may be a byte or integer or string...
 
 ```js
-
-// v can be a string from which we read a character or byte value.
 function repeat (v, dst, off, lim) {
+    // here v can be provided as a string or byte
     if(v === typeof 'string') v = v.charCodeAt(0)
     
     for (var i = off; i < lim; i++) {
-        dst[off] = b
+        dst[i] = b
     }
     // ...
 }
@@ -239,15 +278,6 @@ function padright (s, l) { while(s.length < l) s = s + ' '; return s }
 function padleft  (s, l) { while(s.length < l) s = ' ' + s; return s }
 ```
 
-If that seems a bit too short for a function, we may us 'str' to mean 'a string input'
-
-
-
-### i, si, ri (indexes)
-
-Really?   What about filter(), reduce(), forEach()...?   Those are 
-all great when we aren't iterating over large byte arrays, but when we do
-care about iteration speed, we typically use 'i' or some specific variant
-like 'si' for string index.
+When 's' seems a too short, 'str' is an alternative.
 
 
