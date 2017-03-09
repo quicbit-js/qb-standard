@@ -2,6 +2,16 @@
 
 The Quicbit coding standard
 
+Prioritizing quality over conformity.
+
+qb-standard is comprised of:
+ 
+ * [A Testing Standard](https://github.com/quicbit-js/qb-standard#testing)
+ * [A Build Performance Standard](https://github.com/quicbit-js/qb-standard#build-times)
+ * [A Production and Development Dependency Standard](https://github.com/quicbit-js/qb-standard#production-and-development-dependencies)
+ * [Required Style](https://github.com/quicbit-js/qb-standard/blob/master/required-style.md)
+ * [Recommended (Weighted) Style](https://github.com/quicbit-js/qb-standard/blob/master/required-style.md) 
+
 ## A Quick Note About Our Current Status
 
 While some tools that we use to achieve
@@ -39,7 +49,7 @@ similar tool requiring 100% compliance.
 **qb-standard** inverts this traditional emphasis so that:
 
 * test coverage is strictly enforced (like lint)
-* style rules, other than the most obviously beneficial safety checks, are scored and tracked 
+* style rules, other than the obvious safety rules, are scored and tracked 
 
 qb-standard emphasis on testing is in line with what is important to successful
 projects.  Untested code is a serious risk and very difficult to manage 
@@ -113,8 +123,10 @@ Test coverage below 97% is an outright Quicbit standards violation.
 
 Just like 
 [style standards allow you to silence warnings](https://github.com/feross/standard#how-do-i-hide-a-certain-warning) with
-inserted comments and rules, Quicbit standard may allow test violations to
-be documented and skipped during checks... working out the details on that.
+inserted comments and rules, qb-standard may introduce controls that
+allow test violations to be documented and skipped during checks. We 
+want to be cautious about how this is done and so will be 
+working out the details as we gain experience.
 
 ## Build Times
 
@@ -156,19 +168,22 @@ a module like so:
    [uglified](https://github.com/mishoo/UglifyJS2)) byte cost instead.
 
 2. Track this metric as you would a performance metric - over time and 
-   against changes.  Set limits to what is acceptable change.  A 2x change
-   or + 30K change should be a concern.
+   against changes.  Set limits to what is acceptable change.  Sudden doubling
+   or spikes of say 30KB should be investigated.
 
-3. Now do the steps 1 and 2 for test code, possibly less frequently. to track how the
-   required tool set is coming along - hopefully staying small and simple!
+3. Now do perform steps 1 and 2 for the test-and-build dependencies, possibly 
+   less frequently to track how the
+   required tool set is changing - hopefully staying small and simple!
    
 
 ### Recommended Dev Tools
 
-The requirement to stay light weight with dependencies applies to development
-required tools as well.  While we can of course use whatever we like on our machine
-to develop code, the published package should impose the minimum amount of 
-framework and toolkit to install and test code. 
+These recommended tools are not part of the standard, but are included here to show how we achieve 
+qb-standard today with javascript.
+  
+We like this toolset because it encourages modularization and imposes a minimum amount of 
+framework and toolkit to install and test code.
+ 
 Quicbit currently prefers
 
   * [npm](https://docs.npmjs.com/getting-started/what-is-npm)
@@ -181,8 +196,8 @@ anything.  That being said, being light-weight matters and libraries should only
 apply tools that make a true difference.  A heavy (complex/large) tool has to bring in that much
 more benefit to justify the added weight.
 
-Our hacked-together tools for tracking incremental byte costs are highly manual 
-and not publication worthy at this point.  We will update with this information
+Our tools for tracking incremental byte costs are currently somewhat manual 
+and not yet publication-worthy.  We will update with this information
 they become more mature.
 
 ## Style
@@ -195,7 +210,7 @@ organized into two lists
 2. [Recommended style](https://github.com/quicbit-js/qb-standard/blob/master/recommended-style.md)
 
 (note that there were also a handful of
-[rules](https://github.com/quicbit-js/qb-standard/blob/master/not-required-style.md) 
+[rules](https://github.com/quicbit-js/qb-standard/blob/master/styles-changed-or-removed.md) 
 deemed trivial or in conflict with qb-standard goals and so were left out)
 
 This separation makes clear standards that are *required* for code safety and 
@@ -245,15 +260,17 @@ just strange and confusing to break.
    
 3. Conciseness is king.  Like 
    [Linux kernel style](https://01.org/linuxgraphics/gfx-docs/drm/process/coding-style.html#naming),
-   short names are preferred.  Try to use the short-name-glossary to create greater
-   consistency across libraries.  Failing to use an existing short-name is 
-   not a serious violation of the standard, but using names like 'aString'
-   throughout the code makes algorithms harder to discern.
+   short names are preferred.  Try using the 
+   [variable-glossary](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md) 
+   to create short names and improve consistency across libraries.  While not using a particular 
+   existing short-name is 
+   not a violation of the standard, *egregious use of long names for local 
+   variables is a violation* because it makes logic harder to spot.
    
-   The following functions are **NOT OK** because they are too wordy.  
-   The long parameter names make too big a deal of a very simple algorithm:
+   These functions would be considered **Not OK** because they are too 
+   wordy.  The long parameter names make too big a deal of a very simple algorithm:
         
-```javascript
+```js
     function padright(aString, desiredLength) {
         while(aString.length < desiredLength) {
             aString += ' '  
@@ -269,48 +286,47 @@ just strange and confusing to break.
     }
 ```
         
-   This next example is fine because it uses the parameter glossary to reduce
-   the read burden.  Notice how we can discern the algoritm similarities and 
-   differences more quickly.
+   This next example is OK because it uses the parameter glossary to reduce
+   the read burden.  Notice how it is easier with this version to discern the 
+   algorithms and their similarit.
+   
+```js
+    function padright(s, len) {
+        while(s.length < len) { 
+            s += ' ' 
+        } 
+        return s
+    }
+
+    function padleft(s, len) {
+        while(s.length < len) { 
+            s = ' ' + s
+        } 
+        return s
+    }
+```
+
+   This next example is also nice.  The author uses concise variables and
+   vertical alignment to show contrast and similarity of these two simple 
+   functions.
+   
    
 ```javascript
-       function padright(s, len) {
-           while(s.length < len) { 
-               s += ' ' 
-           } 
-           return s
-       }
-
-       function padleft(s, len) {
-           while(s.length < len) { 
-               s = ' ' + s
-           } 
-           return s
-       }
-```
-
-   The following example shows why we want to empower our author to break 
-   a recommended rule when it improves clarity.  An author may want to 
-   show how simple and similar these functions by lining them
-   up like so:
-
-```javascript
-       function padright (s, l) { while(s.length < l) s = s + ' '; return s }
-       function padleft  (s, l) { while(s.length < l) s = ' ' + s; return s }
+    function padright (s, l) { while(s.length < l) s = s + ' '; return s }
+    function padleft  (s, l) { while(s.length < l) s = ' ' + s; return s }
 ```
        
-   The author changed spacing after the function name as well as the 
+   Notice that the author chose to change spacing after the function name as well as the 
    change to padright 
    code (from <code>s += ' '</code> to <code>s = s + ' '</code>)
    to show great similarity between these functions. 
    If there is a bug in one, then they are probably both broken.
    
-   Here we see value in letting the author make layout decisions 
-   in ways that help the reader.  Quicbit standard allows the author to group 
-   functions together and align code in ways that convey the most information
-   in the clearest possible way.  We think that is important.
+   qb-standard's point-based recommendations communicate layout conformity while
+   still allowing authors leeway to decide what's best.  We think that is important.
    
-   Some developers hate one-line functions because they are difficult to debug, but
+   We understand that some programmers hate one-line functions because 
+   they are difficult to debug, but
    remember that when we shift our concern to having 100% line and branch
    test coverage, debuggable layouts become less important. 
    
