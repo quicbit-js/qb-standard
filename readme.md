@@ -10,7 +10,7 @@ qb-standard is comprised of:
  * [A Build Performance Standard](https://github.com/quicbit-js/qb-standard#build-times)
  * [A Production and Development Dependency Standard](https://github.com/quicbit-js/qb-standard#production-and-development-dependencies)
  * [Required Style](https://github.com/quicbit-js/qb-standard/blob/master/required-style.md)
- * [Recommended (Weighted) Style](https://github.com/quicbit-js/qb-standard/blob/master/required-style.md) 
+ * [Recommended (Weighted) Style](https://github.com/quicbit-js/qb-standard/blob/master/recommended-style.md) 
 
 ## A Quick Note About Our Current Status
 
