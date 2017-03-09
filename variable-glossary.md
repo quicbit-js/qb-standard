@@ -8,10 +8,10 @@ parameter names can keep code concise and speed up understanding of
 function signatures.  Using the glossary certainly isn't mandatory, it's just
 a tool to consolidate terms across a large number of module functions.
 
-Classically trained OO programmers might suggest replacing the glossary
+Classically trained OO programmers sometimes suggest replacing the glossary
 with objects that capture the glossary of terms in methods.  But doing 
-that would add a layer of obscurity and creates a burden on readers 
-to learn and understand non-trivial and non-standard types.  Arrays, strings 
+this adds a layer of obscurity and creates a burden on readers 
+to learn non-trivial and non-standard types.  Arrays, strings 
 and plain objects are transparent and well-understood and so preferred when 
 they can do the job.
 

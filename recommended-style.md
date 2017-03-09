@@ -122,7 +122,9 @@ explanations.
   ```
 
   qb-standard *recommends* that whichever naming approach is used be kept 
-  consistent throughout a module.
+  consistent throughout a module.  While you are at it, check out
+  the [variable-glossary](https://github.com/quicbit-js/qb-standard/blob/master/recommended-style.md)
+  for ideas on how to create consistency across modules and libraries.
 
   **Why leave this item open?**  Won't developers quarrel over it?
   
