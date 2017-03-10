@@ -1,19 +1,24 @@
-# Recommended Style
+# Recommended Style (Scored)
 
-The following rules selected from [feross/standard](https://github.com/feross/standard)
-are deemed to be important enough to be *recommended*, meaning they should be 
+The following rules which are primarily selected from [feross/standard](https://github.com/feross/standard)
+are *recommended*, meaning they are 
 scored and reported and generally followed, but if the author feels it is important enough
-in a particular circumstance, she can choose to break standard and take 
-a score penalty according to the violation.  We are always more concerned with
-testing and conciseness of the solution than the format.
+she can forgo the recommendation and take 
+a score penalty according to the violation.  Violation of these rules is handled 
+very differently from violations of [testing](../readme.md#testing)
+and [required style](required-style.md)  rules which, if broken, 
+cause software to be out of qb-standard.
 
+There is also a [separate document enumerating the 
+rules that were changed or removed](styles-changed-or-removed.md) from feross/standard. 
 
 ## Rules That Differ From Standard
 
-Whenever practical, we prefer to stay in line with the
-broader standard.  The following is the very short list of recommendations that differ 
-from [feross/standard](https://github.com/feross/standard) along with  
-explanations.  
+All but a few of these rules are in line with the 
+popular [feross/standard](https://github.com/feross/standard).
+popular standard.  The following is the very short list of recommended
+rules that differ from [feross/standard](https://github.com/feross/standard) 
+along with explanation for the difference.
 
 * **Use 4 spaces** for indentation.
 
@@ -26,14 +31,17 @@ explanations.
   ```
 
   **Why?**  
-  While 2 spaces might work for many developers, it can be a harder on the eyes for some.
-  4 spaces is a fair balance between Linux kernel's 8 spaces requirement and js standard's 2 spaces.  
-  Again... as a recommended rule, it can be broken if the author feels a 
-  particular indentation helps for a particular set of files.
+  While 2 spaces might work for many developers, it can be a harder on the eyes 
+  for some and it is an outlier when compared with popular format in languages
+  like Python and C.  Where possible, qb-standard favors more similarity 
+  with languages like Python, Java and C.  4 spaces is a fair balance between 
+  Linux kernel's 8 spaces requirement and js standard's 2 spaces.
   
-  Wouldn't tabs solve this problem?  Well, yes, but having two types of whitespace
-  creates unwanted surprises. 
-  The benefit of being able to change indentation 
+  But remember, as with all *recommended* rules, it can be broken if the author feels a 
+  particular indentation is important for a particular part of the code.
+  
+  **Wouldn't tabs solve some of these problems?**  Well, yes, but having two types of whitespace
+  creates other problems. The benefit of being able to change indentation 
   per one's preference isn't worth the hassle that can come
   from different users seeing different alignment, nice though that ability is!
   
@@ -69,13 +77,13 @@ explanations.
   ```
   Why? Using underscore_words helps with portability to C and Python.
   Using pascalCase for classes helps with portability to Java
-  and is consistent with most javascript.
+  and is consistent with most popular javascript.
   
   It is also helpful to distinguish stand-alone and pure functions from 
   object functions.
   
-* **Use underscore_words for properties and parameters** that might 
-    be seen outside of code.
+* **Use underscore_words for properties and parameters** that are 
+    seen outside of code.
 
   ```js
   // public settings exposed in the world
@@ -94,9 +102,9 @@ explanations.
   go awry when they go forth into the world in public settings, 
   JSON, urls, file names, etc.
   Symbols in pascalCase can't be easily indexed or split or managed
-  in any way other than lump-identities whose case must be 
-  maintained.  On the other hand, underscore_words can
-  function effectively in other contexts and whether case information 
+  in any way other than as lump-identities whose case must be 
+  maintained.  In contrast, underscore_words
+  work effectively in other contexts and whether case information 
   is present or not.  
     
 * **Use either pascalCase or underscore_words for local parameters
@@ -122,9 +130,9 @@ explanations.
   ```
 
   qb-standard *recommends* that whichever naming approach is used be kept 
-  consistent throughout a module.  While you are at it, check out
-  the [variable-glossary](https://github.com/quicbit-js/qb-standard/blob/master/recommended-style.md)
-  for ideas on how to create consistency across modules and libraries.
+  consistent throughout a module.  Even better, consult the
+  the [variable-glossary](variable-glossary.md)
+  for ways to create consistency across modules and libraries.
 
   **Why leave this item open?**  Won't developers quarrel over it?
   
@@ -136,13 +144,13 @@ explanations.
 
   At the same time, we recognize that some developers will find a small
   amount of satisfaction choosing local variables that works best for 
-  them.  Our primary objective is not to make all code look exactly the same, but to 
+  them.  Our primary objective is *not* to make all code look exactly the same, but to 
   enforce standards that make a real difference in productivity.
   
   Can you be aware of and sensitive to the local 
   variable naming style of your fellow programmers when working in 
-  a file they created?  We leave this standard slightly open to acknowledge 
-  that this sensitivity and flexibility
+  a module they created?  We leave this local variable naming flexible to acknowledge 
+  that ability to accept and blend in with very slightly different styles
   is as important as any rule you may find in the standard.
 
 ## Rules that match  [feross/standard](https://github.com/feross/standard)

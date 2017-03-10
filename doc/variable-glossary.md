@@ -1,13 +1,18 @@
 # Variable Glossary
 
+**Note: using this glossary is not part of the broader qb-standard. Use is 
+only required when working within quicbit libraries**. We are just sharing 
+the glossary here for those who wish to contribute
+to quicbit-js libraries and as a recommended concept for companies that
+create libraries and APIs.
+
 ## Why have a glossary of parameter and variable names?
+
 
 A glossary of the most common 
 variable and parameter names can reduce time to understand function
 signatures and implementations.  
-Using the glossary isn't mandatory, it's just
-a tool to consolidate terms across a large number of 
-modules and functions.
+
 
 Programmers well-versed in OO methodology might suggest replacing 
 parameter conventions like **src**, **off**, and **lim** with objects
@@ -123,9 +128,9 @@ function illegal_utf8 (src, off, lim) {
 
 While long parameters and variable names in the first example might provide 
 an easy superficial read, the actual logic is clearer in 
-the short version.  Those who are reading the code need to know the logic.  Those
-want to peruse function signatures are usually better off going through a readme and
-examples.
+the short version.  Those reading and changing code need to know this logic very
+well.  Those who want to peruse functions should use documentation and
+examples in the comments or readme files.
 
 Also notice how parameters like **src** and **lim** are plugged directly
 into the algorithm several times.  The parameter name length affects conciseness

@@ -1,17 +1,15 @@
-# Required Style
+# Required Style (Strict)
 
 The following rules selected from [feross/standard](https://github.com/feross/standard)
 are mandatory in **qb-standard**.  Each of these *must-follow* rules were selected
 because they added
 obvious safety or clarity value or because we couldn't think of  
 any compelling reason not to follow them - even when closing our eyes and thinking 
-really hard and trying to imagining any possible scenario whatsoever.
+really hard and trying to imagine any possible scenario whatsoever.
 
-Violation of these rules makes code not qb-standard.  This is different from
-the [*recommended styles*](https://github.com/quicbit-js/qb-standard/blob/master/recommended-style.md) 
-which may be broken and still be qb-standard, but
-could result in a bad format score and a certain level of shame for gratuitous
-violations... we would hope. 
+These rules are different from
+the *[recommended styles](recommended-style.md)* 
+which are given a public score but do not cause code to break the standard.
 
 ## qb-standard requires that code always...
 

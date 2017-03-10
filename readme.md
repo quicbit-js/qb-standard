@@ -1,18 +1,19 @@
 # qb-standard
 
-The Quicbit coding standard
+The [Quicbit](https://github.com/quicbit/quickbit_mission) coding standard: Quality over conformity.
 
-Prioritizing quality over conformity.
-
-qb-standard is comprised of:
+qb-standard consists of strict rules and scored/tracked rules.  The strict rules
+are strong indicators of software quality and reliability.  The scored rules
+including format preferences and build times have no hard cut-off, but need
+to be publicly visible and tracked.
  
- * [A Testing Standard](#testing)
- * [A Build Performance Standard](#build-times)
- * [A Production and Development Dependency Standard](#production-and-development-dependencies)
- * [Required Style](doc/required-style.md)
- * [Recommended (Weighted) Style](doc/recommended-style.md) 
+ * [A Testing Standard](#testing) (Strict)
+ * [Required Style](doc/required-style.md) (Strict)
+ * [A Build Performance Standard](#build-times) (Scored)
+ * [A Production and Development Dependency Standard](#production-and-development-dependencies) (Scored)
+ * [Recommended Style](doc/recommended-style.md) (Scored) 
 
-## A Quick Note About Our Current Status
+## A Quic Note About Our Current Status
 
 While some tools that we use to achieve
 qb-standard like [test-kit](https://github.com/quicbit-js/test-kit) have been 
@@ -171,9 +172,9 @@ a module like so:
    against changes.  Set limits to what is acceptable change.  Sudden doubling
    or spikes of say 30KB should be investigated.
 
-3. Now do perform steps 1 and 2 for the test-and-build dependencies, possibly 
-   less frequently to track how the
-   required tool set is changing - hopefully staying small and simple!
+3. Now perform steps 1 and 2 for the test-and-build dependencies, possibly 
+   less frequently, to track how the size and complexity of the build
+   is changing - hopefully staying small and simple!
    
 
 ### Recommended Dev Tools
@@ -203,7 +204,7 @@ they become more mature.
 
 ## Style
 
-Quickbit style standards are based on the 
+Quicbit style standards are based on the 
 [feross/standard](https://github.com/feross/standard), however, they are 
 organized into two lists
 
