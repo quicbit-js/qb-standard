@@ -15,7 +15,7 @@ qb-standard is comprised of:
 ## A Quick Note About Our Current Status
 
 While some tools that we use to achieve
-qb-standard like [test-kit](../test-kit) have been 
+qb-standard like [test-kit](../../../test-kit) have been 
 made available, others, such as dependency measurement are not ready for publication.
 As we work out practical matters, more tools will be published and details
 will be fleshed out.
