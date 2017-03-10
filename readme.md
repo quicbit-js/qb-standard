@@ -9,8 +9,8 @@ qb-standard is comprised of:
  * [A Testing Standard](#testing)
  * [A Build Performance Standard](#build-times)
  * [A Production and Development Dependency Standard](#production-and-development-dependencies)
- * [Required Style](blob/master/doc/required-style.md)
- * [Recommended (Weighted) Style](blob/master/doc/recommended-style.md) 
+ * [Required Style](doc/required-style.md)
+ * [Recommended (Weighted) Style](doc/recommended-style.md) 
 
 ## A Quick Note About Our Current Status
 
