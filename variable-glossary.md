@@ -150,12 +150,12 @@ documented with clear examples in the readme file*.  Those things are important.
 
 ## Arrays
 
-Why all the focus on arrays and indexes?  
-What about filter(), map(), reduce(), forEach()...?   
+Why focus on arrays and indexes?  Shouldn't we prefer filter(), map(), 
+reduce(), forEach()...?   
 
-Array methods are fine when we aren't iterating over large byte arrays, 
-but when we do work with large data arrays, traditional iteration can
-be far faster.
+A good portion of quicbit software is concerned with fast scans
+over large arrays of bytes.  For these cases, for-loop iteration is
+far faster and is preferred.
 
 ### src (source)
 
