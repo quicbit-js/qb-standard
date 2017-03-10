@@ -36,10 +36,10 @@ const LEFT_2_BIT_MASK = 0xC0
 
 module.exports = function (inputArray, fromIndex, upToIndex) {
     upToIndex = upToIndex == null ? inputArray.length : upToIndex
-    var index = fromIndex || 0
+    let index = fromIndex || 0
     if (index >= upToIndex) { return [] }
 
-    var returnValue = []
+    let returnValue = []
     while (index < upToIndex) {
         // skip ascii
         while (inputArray[index] < LEFT_BIT_MASK) {
@@ -47,13 +47,13 @@ module.exports = function (inputArray, fromIndex, upToIndex) {
         }
 
         // non-ascii (2 or more bytes)
-        var startIndex = index
-        var nextCharacter = inputArray[index++]
+        let startIndex = index
+        let nextCharacter = inputArray[index++]
         if (nextCharacter >= LEFT_2_BIT_MASK) {
             // trailing bytes
 
             // count sequential 1's: 11xxxxxx
-            for (var numberOfBytes = 2; (nextCharacter << numberOfBytes) & LEFT_BIT_MASK; ) {
+            for (let numberOfBytes = 2; (nextCharacter << numberOfBytes) & LEFT_BIT_MASK; ) {
                 numberOfBytes++
             }
             // skip trailing bytes
@@ -90,19 +90,19 @@ And here it is again using the glossary and shorter variable names:
 
 function illegal_utf8 (src, off, lim) {
     lim = lim == null ? src.length : lim
-    var i = off || 0
+    let i = off || 0
     if (i >= lim) { return [] }
 
-    var ret = []
+    let ret = []
     while (i < lim) {
         while (src[i] < 0x80) { if (++i === lim) return ret }       // skip ascii
 
         // non-ascii (2 or more bytes)
-        var start = i
-        var c = src[i++]
+        let start = i
+        let c = src[i++]
         if (c >= 0xC0) {                                            
             // has trailing bytes        
-            for (var n = 2; (c << n) & 0x80; n++) {}                // count sequential 1's: 11xxxxxx
+            for (let n = 2; (c << n) & 0x80; n++) {}                // count sequential 1's: 11xxxxxx
             while (i < lim && (src[i] & 0xC0) === 0x80) { i++ }     // skip trailing bytes
             if (i - start !== n) {                                  
                 if (i - start > n) {                                
@@ -138,8 +138,10 @@ against the obscurity of these short names and the more we practice it the easie
 In this example, there is also a good chance that a reader familiar with other
 quicbit functions will quickly recognize
 that function takes an array-like 
-source ([src]()) with an inclusive lower-bound offset ([off]()) and exclusive
-upper-bound limit ([lim]()).
+source ([src](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#src-source)) 
+with an inclusive lower-bound 
+offset ([off](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#off-offset)) and 
+exclusive upper-bound limit ([lim](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#lim-limit)).
 
 **Bitmask literals?**  Isn't that heresy?!!  Not to us.  *The most important aspects
 of this function is that it is clearly written, has 100% branch and line test coverage, 
@@ -162,8 +164,8 @@ A quicbit src typically contains bytes (integers in range 0 to 255).
 
 ```js
 function scan (src, off, lim) {
-    for (var i = 0; i < lim; i++) {
-        var byte = src[i]
+    for (let i = 0; i < lim; i++) {
+        let byte = src[i]
         // ...
     }
 }
@@ -176,7 +178,7 @@ A quicbit dst typically contains bytes (integers in range 0 to 255).
 
 ```js
 function repeat_byte (b, dst, off, lim) {
-    for (var i = off; i < lim; i++) {
+    for (let i = off; i < lim; i++) {
         dst[off] = b
     }
     // ...
@@ -185,13 +187,13 @@ function repeat_byte (b, dst, off, lim) {
 
 ### off (offset)
 
-Offset into a [src]() or [dst]() array-like object to start reading or
+Offset into a [src](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#src-source) or [dst]() array-like object to start reading or
 writing data.
 
 ```js
 function scan (src, off, lim) {
-    for (var i = 0; i < lim; i++) {
-        var byte = src[i]
+    for (let i = 0; i < lim; i++) {
+        let byte = src[i]
         // ...
     }
 }
@@ -199,7 +201,7 @@ function scan (src, off, lim) {
 
 ### lim (limit)
 
-The offset into a [src]() or [dst]() *before which* we stop reading or writing data.
+The offset into a [src](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#src-source) or [dst]() *before which* we stop reading or writing data.
 
 ```js
 function copy (src, off, lim, dst) {
@@ -207,14 +209,14 @@ function copy (src, off, lim, dst) {
 }
 ```
 
-### l, len (length)
+### len (length)
 
-The number of bytes to process in a [src]() or [dst]() array.
+The number of bytes to process in a [src](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#src-source) or [dst]() array.
 
 ```js
-function scan (src, off, lim) {
-    for (var i = 0; i < lim; i++) {
-        var byte = src[i]
+function scan (src, off, len) {
+    for (let i = 0; i < off + len; i++) {
+        let byte = src[i]
         // ...
     }
 }
@@ -223,8 +225,9 @@ function scan (src, off, lim) {
 So which is it, copy(src, off, **lim**) or copy(src, off, **len**)?
 
 When working with a stacks of calls that operate on array ranges, we usually find
-functions with [lim]() to be more direct than [len]().  On the other hand, 
-functions with the [len]() signature can be simpler when 
+functions with [lim](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#lim-limit) 
+to be more direct than [len](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#len-length).  On the other hand, 
+functions with the [len](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#len-length) signature can be simpler when 
 not already managing arrays and offsets.
 
 ### i, si, di... (array indexes)
@@ -233,12 +236,12 @@ Usually we use 'i' or, where there are multiple loops, two initials ending with 
 
 ```js
 function repeat (s, dst, off, lim) {
-    var scodes = s.map((c) => c.charCodeAt(0))
-    var slen = s.length
+    let scodes = s.map((c) => c.charCodeAt(0))
+    let slen = s.length
     
-    for (var di = off; di < lim; di++) {
+    for (let di = off; di < lim; di++) {
         // in actual implementation, we might handle bounds etc...
-        for (var si = 0; si < slen; si++) {
+        for (let si = 0; si < slen; si++) {
             dst[di + si] = scodes[si]
         }
     }
@@ -262,7 +265,7 @@ function repeat (v, dst, off, lim) {
     // here v can be provided as a string or byte
     if(v === typeof 'string') v = v.charCodeAt(0)
     
-    for (var i = off; i < lim; i++) {
+    for (let i = off; i < lim; i++) {
         dst[i] = b
     }
     // ...
