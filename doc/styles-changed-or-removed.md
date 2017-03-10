@@ -71,7 +71,7 @@ to having them in data driven testing.  For example:
 When there is an issue with chinese characters, move the chinese test(s) to
 the top of the table to assert them first... without deleting the 
 comma from the new bottom table row <code>[ '"abc"%', ...</code> and then adding
-a comma to the row.  With 100's of tests to manage, the dangling comma is 
+a comma to the row.  With 100's of test data tables to manage, the dangling comma is 
 actually helpful.
 
 ```js
@@ -90,7 +90,7 @@ test('utf8', function(t) {
 })
 ```
 
-... and they don't cause diff-noise when moved, so make change management cleaner:
+Dangling commas also help with change management by suppressing diff-noise:
 
 Let's say this object:
 
@@ -114,6 +114,30 @@ var info = {
 ```
 
 The diff shows:
+
+```
+--- a/doc/t.js
++++ b/doc/t.js
+@@ -1,5 +1,6 @@
+ var info = {
+     first_name: "Stanley",
+     last_name: "Peabody",
+-    address: "2015 U.S. Highway Route 22, Fimblebuck, New Jersey, 03252-2355"
++    address: "2015 U.S. Highway Route 22, Fimblebock, New Jersey, 03252-2355",
++    cell_phone: "377-232-0333"
+ }
+```
+
+So cell_phone was added...
+
+Did you notice that Fimblebuck changed spelling too?  If changing
+that line was dangerous to our system, we just missed it because we are accustomed to ignoring
+the comma change.  Managing a project with dozens of changes would easily miss this.
+If we had used dangling commas, we would have noticed the two-line change.
+
+So we leave use of dangling commas as an author judgement call and suggest that if you
+see them in someone else's code, to **not** do the 
+favor "cleaning them all up".  They may be intentional.
 
 ### Commas should have a space after them.
 
