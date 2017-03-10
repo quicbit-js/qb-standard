@@ -31,7 +31,7 @@ to watch coverage with each release.  With the help of
 with practice, the cost of achieving near 100% coverage on all 
 software has become manageable to a point that it makes sense as a requirement, 
 especially in light of the benefits that it brings requiring less stringency
-and work elsewhere.  [quickbit-js](..) has several 
+and work elsewhere.  [quickbit-js](https://github.com/quickbit-js) has several 
 [examples](https://github.com/quicbit-js/qb-json-tok/test.js) of 
 100% code coverage using data-driven testing.
 
