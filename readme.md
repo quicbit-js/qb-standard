@@ -4,8 +4,8 @@ The [Quicbit](https://github.com/quicbit/quickbit_mission) coding standard: Qual
 
 qb-standard consists of strict rules and scored/tracked rules.  The strict rules
 are strong indicators of software quality and reliability.  The scored rules
-including format preferences and build times have no hard cut-off, but need
-to be publicly visible and tracked.
+including format preferences and build times have no hard cut-off, but according
+to qb-standard, need to be publicly visible and tracked.
  
  * [A Testing Standard](#testing) (Strict)
  * [Required Style](doc/required-style.md) (Strict)

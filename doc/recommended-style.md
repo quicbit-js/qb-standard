@@ -130,9 +130,9 @@ along with explanation for the difference.
   ```
 
   qb-standard *recommends* that whichever naming approach is used be kept 
-  consistent throughout a module.  Even better, consult the
-  the [variable-glossary](variable-glossary.md)
-  for ways to create consistency across modules and libraries.
+  consistent throughout a module.  Even better, create and use a
+  [variable-glossary](variable-glossary.md)
+  to improve consistency across modules and libraries.
 
   **Why leave this item open?**  Won't developers quarrel over it?
   
