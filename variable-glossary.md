@@ -253,7 +253,7 @@ function repeat (s, dst, off, lim) {
 
 ### ret (return value)
 
-The value that is intended to be returned, ()or converted-and-returned 
+The value that is intended to be returned, (or converted-and-returned 
 in a final step) is often called 'ret'.
 
 ### v (value)
