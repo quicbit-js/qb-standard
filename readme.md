@@ -15,7 +15,7 @@ qb-standard is comprised of:
 ## A Quick Note About Our Current Status
 
 While some tools that we use to achieve
-qb-standard like [test-kit](quicbit-js/test-kit) have been 
+qb-standard like [test-kit](https://github.com/quicbit-js/test-kit) have been 
 made available, others, such as dependency measurement are not ready for publication.
 As we work out practical matters, more tools will be published and details
 will be fleshed out.
@@ -27,12 +27,12 @@ at the moment.
 The 100% 
 test coverage requirement is real and active.  We use tap --coverage option
 to watch coverage with each release.  With the help of 
-[test-kit](../test-kit) and
+[test-kit](https://github.com/quicbit-js/test-kit) and
 with practice, the cost of achieving near 100% coverage on all 
 software has become manageable to a point that it makes sense as a requirement, 
 especially in light of the benefits that it brings requiring less stringency
 and work elsewhere.  [quickbit-js](..) has several 
-[examples](../qb-json-tok/test.js) of 
+[examples](https://github.com/quicbit-js/qb-json-tok/test.js) of 
 100% code coverage using data-driven testing.
 
 We hope you find this document useful, or at least some of the ideas interesting
@@ -111,7 +111,7 @@ Test coverage below 97% is an outright Quicbit standards violation.
 * Does the code employ stateless functions for 
   complex logic so that it can be easily tested?  
 * Do tests use 
-  [data-driven tools and techniques](../test-kit) to ease the 
+  [data-driven tools and techniques](https://github.com/quicbit-js/test-kit) to ease the 
   burden of writing comprehensive test cases?  
 * Is complex logic 
   tightly integrated with objects that require heavy amount of 
@@ -122,7 +122,7 @@ Test coverage below 97% is an outright Quicbit standards violation.
 
 
 Just like 
-[style standards allow you to silence warnings](../../feross/standard#how-do-i-hide-a-certain-warning) with
+[style standards allow you to silence warnings](https://github.com/feross/standard#how-do-i-hide-a-certain-warning) with
 inserted comments and rules, qb-standard may introduce controls that
 allow test violations to be documented and skipped during checks. We 
 want to be cautious about how this is done and so will be 
@@ -148,7 +148,7 @@ Usually, we don't let modules get big in the first place.
 ## Production and Development Dependencies
 
 Size and complexity of the entire required code base counts, not just the 
-code one is writing.  In other words, the [browserified](../../substack/node-browserify) 
+code one is writing.  In other words, the [browserified](https://github.com/substack/node-browserify) 
 file counts, not just the simplicity of the root-level library in question.
 Think critically before adding new dependencies and seek to get good benefit-per-KB 
 of each added library.
@@ -165,7 +165,7 @@ a module like so:
        byte_cost = bytes_with_module - bytes_without_module
        
    Concerned about penalizing comments?  Track the condensed (e.g. 
-   [uglified](../../mishoo/UglifyJS2)) byte cost instead.
+   [uglified](https://github.com/mishoo/UglifyJS2)) byte cost instead.
 
 2. Track this metric as you would a performance metric - over time and 
    against changes.  Set limits to what is acceptable change.  Sudden doubling
@@ -189,7 +189,8 @@ Quicbit currently prefers
   * [npm](https://docs.npmjs.com/getting-started/what-is-npm)
     * npm [packaging](https://docs.npmjs.com/getting-started/using-a-package.json)
     * npm [scripts](https://docs.npmjs.com/misc/scripts) for build and automation
-  * testing via [test-kit](../test-kit), [tape](../../substack/tape), or [tap](http://www.node-tap.org/)
+  * testing via [test-kit](https://github.com/quicbit-js/test-kit), [tape](https://github.com/substack/tape), or 
+        [tap](http://www.node-tap.org/)
    
 This tool list is technically unbounded because you can npm scripts could run 
 anything.  That being said, being light-weight matters and libraries should only
@@ -203,7 +204,7 @@ they become more mature.
 ## Style
 
 Quickbit style standards are based on the 
-[feross/standard](../../feross/standard), however, they are 
+[feross/standard](https://github.com/feross/standard), however, they are 
 organized into two lists
 
 1. [Required style](doc/required-style.md)
