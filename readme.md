@@ -6,7 +6,7 @@ Prioritizing quality over conformity.
 
 qb-standard is comprised of:
  
- * [A Testing Standard](https://github.com/quicbit-js/qb-standard#testing)
+ * [A Testing Standard](#testing)
  * [A Build Performance Standard](https://github.com/quicbit-js/qb-standard#build-times)
  * [A Production and Development Dependency Standard](https://github.com/quicbit-js/qb-standard#production-and-development-dependencies)
  * [Required Style](https://github.com/quicbit-js/qb-standard/blob/master/required-style.md)
