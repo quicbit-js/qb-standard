@@ -32,7 +32,7 @@ with practice, the cost of achieving near 100% coverage on all
 software has become manageable to a point that it makes sense as a requirement, 
 especially in light of the benefits that it brings requiring less stringency
 and work elsewhere.  [quickbit-js](..) has several 
-[examples](../qb-json-tok/blob/master/test.js) of 
+[examples](../qb-json-tok/test.js) of 
 100% code coverage using data-driven testing.
 
 We hope you find this document useful, or at least some of the ideas interesting
@@ -206,11 +206,11 @@ Quickbit style standards are based on the
 [feross/standard](../../feross/standard), however, they are 
 organized into two lists
 
-1. [Required style](blob/master/doc/required-style.md)
-2. [Recommended style](blob/master/doc/recommended-style.md)
+1. [Required style](doc/required-style.md)
+2. [Recommended style](doc/recommended-style.md)
 
 (note that there were also a handful of
-[rules](blob/master/doc/styles-changed-or-removed.md) 
+[rules](doc/styles-changed-or-removed.md) 
 deemed trivial or in conflict with qb-standard goals and so were left out)
 
 This separation makes clear standards that are *required* for code safety and 
@@ -261,7 +261,7 @@ just strange and confusing to break.
 3. Conciseness is king.  Like 
    [Linux kernel style](https://01.org/linuxgraphics/gfx-docs/drm/process/coding-style.html#naming),
    short names are preferred.  Try using the 
-   [variable-glossary](blob/master/doc/variable-glossary.md) 
+   [variable-glossary](doc/variable-glossary.md) 
    to create short names and improve consistency across libraries.  While not using a particular 
    existing short-name is 
    not a violation of the standard, *egregious use of long names for local 
