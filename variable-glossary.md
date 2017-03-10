@@ -187,7 +187,9 @@ function repeat_byte (b, dst, off, lim) {
 
 ### off (offset)
 
-Offset into a [src](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#src-source) or [dst]() array-like object to start reading or
+Offset into a [src](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#src-source) 
+or [dst](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#dst-destination) 
+array-like object to start reading or
 writing data.
 
 ```js
@@ -201,7 +203,8 @@ function scan (src, off, lim) {
 
 ### lim (limit)
 
-The offset into a [src](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#src-source) or [dst]() *before which* we stop reading or writing data.
+The offset into a [src](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#src-source) 
+or [dst](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#dst-destination) *before which* we stop reading or writing data.
 
 ```js
 function copy (src, off, lim, dst) {
@@ -211,7 +214,8 @@ function copy (src, off, lim, dst) {
 
 ### len (length)
 
-The number of bytes to process in a [src](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#src-source) or [dst]() array.
+The number of bytes to process in a [src](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#src-source) 
+or [dst](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#dst-destination) array.
 
 ```js
 function scan (src, off, len) {
