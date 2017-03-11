@@ -53,7 +53,7 @@ were decided to be not quite impactful enough keep:
   }
   ```
 
-Why?  100% line and branch coverage will almost certainly catch such mistakes. 
+Why not enforced?  100% line and branch coverage will almost certainly catch such mistakes. 
 
 ### Trailing commas not allowed
 
@@ -64,6 +64,8 @@ Why?  100% line and branch coverage will almost certainly catch such mistakes.
         message: 'hello',   // ✗ avoid
     }
   ```
+
+Why not enforced? 
 
 Trailing commas don't cause a safety concern outside of IE8 and there are 
 consistency and ease-of-use benefits in using them to manage vertical lists.
@@ -132,7 +134,7 @@ see them in someone else's file, to **not** help "clean them up".  They might be
   function greet (name,options) { ... }
   ```
   
-  Why?  Very long lists might be better to cram into smaller space.
+  Why not enforced?  Very long lists might be better to cram into smaller space.
   Not a safety or significant readability concern.
 
 ### For var declarations, write each declaration in its own statement.
@@ -151,7 +153,7 @@ see them in someone else's file, to **not** help "clean them up".  They might be
   var silent = true,
       verbose = true
   ```
-  Why?   Not a safety or significant readability concern.
+  Why not enforced?   Not a safety or significant readability concern.
 
 ### Add spaces inside single line blocks
 
@@ -162,7 +164,7 @@ see them in someone else's file, to **not** help "clean them up".  They might be
     function foo () { return true }  // ✓ ok
   ```
 
-  Why?   Not a safety or significant readability concern.
+  Why not enforced?  Not a safety or significant readability concern.
 
 ### No label statements
 
@@ -175,7 +177,7 @@ see them in someone else's file, to **not** help "clean them up".  They might be
       }
   ```
 
-  Some high-performance code is clearer with label use.  Inappropriate
+  Why not enforced?  Some high-performance code is clearer with label use.  Inappropriate
   use is a judgement call.
   
 ### Do not use multiple spaces except for indentation
@@ -186,7 +188,7 @@ see them in someone else's file, to **not** help "clean them up".  They might be
   const id =    1234    // ✗ avoid
   const id = 1234       // ✓ ok
   ```
-   Why?   Not a significant readability or safety concern.  Agree it can
+   Why not enforced?   Not a significant readability or safety concern.  Agree it can
    be annoying when over-applied, but in some cases, alignment can help readability:
    
 ```js
