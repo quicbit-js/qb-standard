@@ -65,32 +65,10 @@ Why?  100% line and branch coverage will almost certainly catch such mistakes.
     }
   ```
 
-Trailing commas don't cause a safety concern.  There is even a real benefit
-to having them in data driven testing.  For example:
+Trailing commas don't cause a safety concern outside of IE8 and there are 
+consistency and ease-of-use benefits in using them to manage vertical lists.
 
-When there is an issue with chinese characters, move the chinese test(s) to
-the top of the table to assert them first... without deleting the 
-comma from the new bottom table row <code>[ '"abc"%', ...</code> and then adding
-a comma to the row.  With 100's of test data tables to manage, the dangling comma is 
-actually helpful.
-
-```js
-test('utf8', function(t) {
-    t.tableAssert(
-        [
-            [ 's',                   'exp'                                  ],
-            [ '',                    []                                     ],
-            [ 'a',                   [0x61]                                 ],
-            [ 'abc\uD801\uDC00',     [0x61,0x62,0x63,0xF0,0x90,0x90,0x80]   ],
-            [ '"abc"%',              [ 34,97,98,99,34,37 ]                  ],
-            [ '在嚴寒的冬日裡',        [229,156,168,229,154,180,229,175,146,231,154,132,229,134,172,230,151,165,232,163,161] ],
-        ],
-        utf8_from_str
-    )
-})
-```
-
-Dangling commas also help with change management by suppressing diff-noise:
+Here's an example of trailing commas helping reduce diff-noise:
 
 Let's say this object:
 
@@ -131,13 +109,12 @@ The diff shows:
 So cell_phone was added...
 
 Did you notice that Fimblebuck changed spelling too?  If changing
-that line was dangerous to our system, we just missed it because we are accustomed to ignoring
-the comma change.  Managing a project with dozens of changes would easily miss this.
-If we had used dangling commas, we would have noticed the two-line change.
+that line was dangerous to our system, we could easily have overlooked it in 
+a review.  If we had used dangling commas, the spelling change
+would have been much more obvious.
 
-So we leave use of dangling commas as an author judgement call and suggest that if you
-see them in someone else's code, to **not** do the 
-favor "cleaning them all up".  They may be intentional.
+So we leave use of dangling commas a author judgement call and suggest that if you
+see them in someone else's file, to **not** help "clean them up".  They might be intentional.
 
 ### Commas should have a space after them.
 

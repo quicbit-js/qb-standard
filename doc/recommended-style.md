@@ -31,17 +31,24 @@ along with explanation for the difference.
   ```
 
   **Why?**  
-  While 2 spaces might work for many developers, it can be a harder on the eyes 
-  for some and it is an outlier when compared with popular format in languages
-  like Python and C.  Where possible, qb-standard favors more similarity 
-  with languages like Python, Java and C.  4 spaces is a fair balance between 
-  Linux kernel's 8 spaces requirement and js standard's 2 spaces.
+  Two spaces is a bit under the number it takes to make code blocks "pop" out 
+  noticeably which puts the reader at a slight disadvantage discerning 
+  code blocks.
+  More importantly for quicbit, we find it beneficial
+  to when libraries are similar as we manage them across
+  languages.  Four spaces is the good balance between 
+  Linux kernel's eight spaces requirement and js standard's two spaces - and
+  it fits well with Python PEP-8, Java, and most C that we find.
   
-  But remember, as with all *recommended* rules, it can be broken if the author feels a 
-  particular indentation is important for a particular part of the code.
+  However, as with all *recommended* rules, we feel this rule can be broken if 
+  an author or project leader feels a particular indentation is important for a 
+  particular module, project, or file.  Any
+  modern editor can adjust code to a desired indentation, and so a 100% tested
+  well-written module shouldn't be shunned because it has a particular 
+  indentation level.
   
-  **Wouldn't tabs solve some of these problems?**  Well, yes, but having two types of whitespace
-  creates other problems. The benefit of being able to change indentation 
+  **Wouldn't tabs solve some of these problems?**  Well, yes, but having adjustable 
+  whitespace creates other problems. The benefit of being able to change indentation 
   per one's preference isn't worth the hassle that can come
   from different users seeing different alignment, nice though that ability is!
   
@@ -77,9 +84,10 @@ along with explanation for the difference.
   ```
   Why? Using underscore_words helps with portability to C and Python.
   Using pascalCase for classes helps with portability to Java
-  and is consistent with most popular javascript.
+  and is consistent with popular javascript.
   
-  It is also helpful to distinguish stand-alone and pure functions from 
+  There is also a readability benefit from being able to 
+  quickly distinguish stand-alone functions from 
   object functions.
   
 * **Use underscore_words for properties and parameters** that are 
