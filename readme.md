@@ -1,8 +1,9 @@
 # qb-standard
 
-The [Quicbit](https://github.com/quicbit/quickbit_mission) coding standard: Quality over conformity.
+The [Quicbit](https://github.com/quicbit/quickbit_mission) coding 
+standard: Quality over conformity.
 
-qb-standard consists of strict rules and scored/tracked rules.  The strict rules
+**qb-standard**, also called **qb-standard-100** consists of strict rules and scored/tracked rules.  The strict rules
 are strong indicators of software quality and reliability.  The scored rules
 including format preferences and build times have no hard cut-off, but according
 to qb-standard, need to be publicly visible and tracked.
@@ -97,14 +98,25 @@ Above all, create software that is simple, clean and understandable.
 
 ## Testing
 
-In Quicbit, 100% or very near 100% branch and line coverage is a requirement.
-Requirements for both branch and line coverage are:
+The "green" test requirement for **qb-standard** (a.k.a **qb-standard-100**), 
+is 100% line and branch coverage.  We 
+feel this standard is suitable for 
+shared libraries expecting broad adoption. Quicbit published libraries 
+adhere to this standard.
+
+For some types of application development and less mature software, authors may 
+settle fpr **qb-standard-90** or **qb-standard-80** which have lower coverage requirements.  
+
+
+### qb-standard (a.k.a. qb-standard-100)
+
+qb-standard has a 100% for green/OK, and 97% for yellow/warning branch and line coverage requirement.
 
     100%                             OK                           (green)
     Below 100%                       Caution - missing coverage   (yellow)
     Below 97%                        Not covered. Not standard    (red)
 
-Test coverage below 97% is an outright Quicbit standards violation. 
+Test coverage below 97% is not qb-standard.
 
 **Having trouble achieving these levels of coverage?**
 ... then take a careful look at the code in question -
@@ -124,10 +136,27 @@ Test coverage below 97% is an outright Quicbit standards violation.
 
 Just like 
 [style standards allow you to silence warnings](https://github.com/feross/standard#how-do-i-hide-a-certain-warning) with
-inserted comments and rules, qb-standard may introduce controls that
+inserted comments and rules, qb-standard *might* introduce controls that
 allow test violations to be documented and skipped during checks. We 
 want to be cautious about how this is done and so will be 
 working out the details as we gain experience.
+
+### qb-standard-90
+
+qb-standard but with lower test thresholds
+
+    90%                              OK                           (green)
+    Below 90%                        Caution - missing coverage   (yellow)
+    Below 85%                        Not qb-standard-90           (red)
+
+
+### qb-standard-80
+
+qb-standard but with even lower test thresholds
+
+    80%                              OK                           (green)
+    Below 80%                        Caution - missing coverage   (yellow)
+    Below 75%                        Not qb-standard-80           (red)
 
 ## Build Times
 

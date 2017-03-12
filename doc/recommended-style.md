@@ -34,18 +34,15 @@ along with explanation for the difference.
   Two spaces is a bit under the number it takes to make code blocks "pop" out 
   noticeably which puts the reader at a slight disadvantage discerning 
   code blocks.
-  More importantly for quicbit, we find it beneficial
-  to when libraries are similar as we manage them across
-  languages.  Four spaces is the good balance between 
+  
+  For quicbit, we also find it beneficial when our software looks
+  similar across languages.  Four spaces is a good balance between 
   Linux kernel's eight spaces requirement and js standard's two spaces - and
   it fits well with Python PEP-8, Java, and most C that we find.
   
-  However, as with all *recommended* rules, we feel this rule can be broken if 
-  an author or project leader feels a particular indentation is important for a 
-  particular module, project, or file.  Any
-  modern editor can adjust code to a desired indentation, and so a 100% tested
-  well-written module shouldn't be shunned because it has a particular 
-  indentation level.
+  As with all *recommended* rules, the author or project
+  lead can choose indentation that is appropriate to a particular module 
+  and it won't break qb-standard.
   
   **Wouldn't tabs solve some of these problems?**  Well, yes, but having adjustable 
   whitespace creates other problems. The benefit of being able to change indentation 
@@ -101,8 +98,8 @@ along with explanation for the difference.
   }
   ```
   
-  This includes function parameters in APIs, restful JSON interfaces
-  and so on.
+  This recommendation includes function object properties, parameters in APIs, 
+  restful JSON interfaces and so on.
   
   **Why?**
   pascalCaseProperties and parameters work well
