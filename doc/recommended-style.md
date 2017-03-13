@@ -31,7 +31,8 @@ along with explanation for the difference.
   ```
 
   **Why?**  
-  In some situations, spaces can make it hard to discern code blocks.
+  In some situations, two spaces indentation isn't enough to show
+  code blocks clearly:
   
       .two
       .space
@@ -50,6 +51,8 @@ along with explanation for the difference.
         .hide
         .the
         .line
+  
+  Four spaces is enough to make the blocks show:
   
       .but
       .four
