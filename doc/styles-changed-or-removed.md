@@ -27,7 +27,7 @@ Two rules were changed from [feross/standard](https://github.com/feross/standard
     var myVar = 'hello'            // ✓ ok
   ```
 
-  [qb-standard recommends underscore_words for some cases](recommended-style.md)
+  [qb-standard recommends snake_case for some names](recommended-style.md)
 
 
 # Rules not kept

@@ -87,10 +87,10 @@ along with explanation for the difference.
   per one's preference isn't worth the hassle that can come
   from different users seeing different alignment, nice though that ability is!
   
-* **Use pascalCase for object functions and underscore_words for stand-alone functions.**
+* **Use pascalCase for object functions and snake_case for stand-alone functions.**
   
   Use pascalCaseForObjectFunctions that access the 'this' 
-  parameter and use_underscore_words for other functions.  
+  parameter and use_snake_case for other functions.  
   
   ```js
   class Dog {
@@ -117,7 +117,7 @@ along with explanation for the difference.
       create_dog: (breed) => { return new Dog(breed) }
   }
   ```
-  Why? Using underscore_words helps with portability to C and Python.
+  Why? Using snake_case helps with portability to C and Python.
   Using pascalCase for classes helps with portability to Java
   and is consistent with popular javascript.
   
@@ -125,7 +125,7 @@ along with explanation for the difference.
   quickly distinguish stand-alone functions from 
   object functions.
   
-* **Use underscore_words for properties and parameters** that are 
+* **Use snake_case for properties and parameters** that are 
     seen outside of code.
 
   ```js
@@ -146,15 +146,15 @@ along with explanation for the difference.
   JSON, urls, file names, etc.
   Symbols in pascalCase can't be easily indexed or split or managed
   in any way other than as lump-identities whose case must be 
-  maintained.  In contrast, underscore_words
+  maintained.  In contrast, snake_case
   work effectively in other contexts and whether case information 
   is present or not.  
     
-* **Use either pascalCase or underscore_words for local parameters
+* **Use either pascalCase or snake_case for local parameters
     and variables** a.k.a.
   "the awareness and sensitivity standard"
   
-  pascalCase and underscore_words are both legitimate styles for
+  pascalCase and snake_case are both legitimate styles for
   local parameters and variables.
   
   As a software developer, one should feel quite capable of
