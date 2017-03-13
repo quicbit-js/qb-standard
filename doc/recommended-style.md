@@ -31,10 +31,45 @@ along with explanation for the difference.
   ```
 
   **Why?**  
-  Two spaces is a bit under the number it takes to make code blocks "pop" out 
-  noticeably which puts the reader at a slight disadvantage discerning 
-  code blocks.
+  In some situations, spaces can make it hard to discern code blocks.
   
+      .two
+      .space
+      .indentation
+        doesn't
+        show 
+        .inner 
+        blocks
+        .clearly
+          especially
+          .when
+          .using 
+          .certain
+          characters
+        .which
+        .hide
+        .the
+        .line
+  
+      .but
+      .four
+      .space
+      .indentation
+          does 
+          show 
+          .inner 
+          blocks
+          .clearly
+              even
+              .when
+              .using 
+              .certain
+              characters
+          .which
+          .hide
+          .the
+          .line
+
   For quicbit, we also find it beneficial when our software looks
   similar across languages.  Four spaces is a good balance between 
   Linux kernel's eight spaces requirement and js standard's two spaces - and
