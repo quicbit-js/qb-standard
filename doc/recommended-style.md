@@ -20,19 +20,27 @@ popular standard.  The following is the very short list of recommended
 rules that differ from [feross/standard](https://github.com/feross/standard) 
 along with explanation for the difference.
 
-* **Use 4 spaces** for indentation.
+* **Use 2 or 4 spaces** for indentation.
 
   eslint: [`indent`](http://eslint.org/docs/rules/indent)
 
   ```js
   function hello (name) {
-      console.log('hi', name)
+      console.log('hi', name)      // ✓ ok
+  }
+  ```
+
+  ```js
+  function hello (name) {
+    console.log('hi', name)        // ✓ ok
   }
   ```
 
   **Why?**  
-  In some situations, two spaces indentation isn't enough to show
-  code blocks clearly:
+  
+  We found as we converted some libraries over to feross/standard, that 
+  two spaces was great in most cases, but in some high-performance
+  functions with several code levels, it made blocks harder to see:
   
       .two
       .space
@@ -51,8 +59,6 @@ along with explanation for the difference.
         .hide
         .the
         .line
-  
-  Four spaces is enough to make the blocks show:
   
       .but
       .four
@@ -73,14 +79,16 @@ along with explanation for the difference.
           .the
           .line
 
-  For quicbit, we also find it beneficial when our software looks
-  similar across languages.  Four spaces is a good balance between 
+  While we agree that indentation should be consistent within a file, we 
+  don't feel that small-indentation should be enforced universally.
+  
+  Note that for quicbit, we sometimes find it beneficial when our software looks
+  similar across languages.  Four spaces can be a good balance between 
   Linux kernel's eight spaces requirement and js standard's two spaces - and
   it fits well with Python PEP-8, Java, and most C that we find.
   
-  As with all *recommended* rules, the author or project
-  lead can choose indentation that is appropriate to a particular module 
-  and it won't break qb-standard.
+  So we plan to release simple means to check qb-standard for compliance with
+  either 2 or 4 space indentation.  
   
   **Wouldn't tabs solve some of these problems?**  Well, yes, but having adjustable 
   whitespace creates other problems. The benefit of being able to change indentation 
@@ -125,6 +133,10 @@ along with explanation for the difference.
   quickly distinguish stand-alone functions from 
   object functions.
   
+  Again, tooling for this is a bit behind, but we feel this is a 
+  good standard to make code across several languages more similar,
+  or at least less unnecessarily dissimilar.
+  
 * **Use snake_case for properties and parameters** that are 
     seen outside of code.
 
@@ -141,7 +153,7 @@ along with explanation for the difference.
   
   **Why?**
   pascalCaseProperties and parameters work well
-  as symbols in code but tend to
+  as symbols in code but
   go awry when they go forth into the world in public settings, 
   JSON, urls, file names, etc.
   Symbols in pascalCase can't be easily indexed or split or managed
@@ -157,7 +169,7 @@ along with explanation for the difference.
   pascalCase and snake_case are both legitimate styles for
   local parameters and variables.
   
-  As a software developer, one should feel quite capable of
+  As a software developer, one should feel capable of
   working with either and both these formats without blinking (or scoffing).
   
   ```js
@@ -173,7 +185,8 @@ along with explanation for the difference.
   ```
 
   qb-standard *recommends* that whichever naming approach is used be kept 
-  consistent throughout a module.  Even better, create and use a
+  consistent throughout a module or across team code.  Also consider
+  creating and using a
   [variable-glossary](variable-glossary.md)
   to improve consistency across modules and libraries.
 
