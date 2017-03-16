@@ -209,7 +209,13 @@ along with explanation for the difference.
   that ability to accept and blend in with very slightly different styles
   is as important as any rule you may find in the standard.
 
-## Rules that match  [feross/standard](https://github.com/feross/standard)
+## Recommendations that match  [feross/standard](https://github.com/feross/standard)
+
+These recommendations are in line with [feross/standard](https://github.com/feross/standard)
+but in contrast to that standard and in contrast to qb-standard [required styles](required-style.md), 
+these rules may be broken
+for a format score penalty without completely breaking the standard.  IOW, 
+a high level of compliance is expected, but 100% compliance is required.
 
 * **Use single quotes for strings** except to avoid escaping.
 
