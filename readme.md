@@ -1,12 +1,5 @@
 # qb-standard
 
-`[![qb standard][qb-standard-img]][qb-standard-url]
-
-[qb-standard-image]:   https://img.shields.io/npm/v/qb-utf8-to-str-tiny.svg
-[downloads-image]: https://img.shields.io/npm/dm/qb-utf8-to-str-tiny.svg
-[npm-url]:         https://npmjs.org/package/qb-utf8-to-str-tiny
-
-
 The [Quicbit](https://github.com/quicbit/quickbit_mission) coding 
 standard: Quality over conformity.
 
