@@ -1,5 +1,12 @@
 # qb-standard
 
+`[![qb standard][qb-standard-img]][qb-standard-url]
+
+[qb-standard-image]:   https://img.shields.io/npm/v/qb-utf8-to-str-tiny.svg
+[downloads-image]: https://img.shields.io/npm/dm/qb-utf8-to-str-tiny.svg
+[npm-url]:         https://npmjs.org/package/qb-utf8-to-str-tiny
+
+
 The [Quicbit](https://github.com/quicbit/quickbit_mission) coding 
 standard: Quality over conformity.
 
@@ -143,7 +150,9 @@ working out the details as we gain experience.
 
 ### qb-standard-90
 
-qb-standard but with lower test thresholds
+qb-standard with lower test thresholds.  For applications that are not
+shared as libraries, a lower testing standard might be more commercial and 
+practical.
 
     90%                              OK                           (green)
     Below 90%                        Caution - missing coverage   (yellow)
@@ -152,7 +161,9 @@ qb-standard but with lower test thresholds
 
 ### qb-standard-80
 
-qb-standard but with even lower test thresholds
+qb-standard with even lower test thresholds.  For applications that are
+not shared as libraries and are not critical to a business this lower test threshold might
+be suitable.  There is no qb-standard that accepts test levels below 75%.
 
     80%                              OK                           (green)
     Below 80%                        Caution - missing coverage   (yellow)
