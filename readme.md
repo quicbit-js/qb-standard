@@ -3,7 +3,8 @@
 The [Quicbit](https://github.com/quicbit/quickbit_mission) coding 
 standard: Quality over conformity.
 
-**qb-standard**, also called **qb-standard-100** consists of strict rules and scored/tracked rules.  The strict rules
+**qb-standard**, also called **qb-standard-100** consists of strict rules and 
+scored/tracked rules.  The strict rules
 are strong indicators of software quality and reliability.  The scored rules
 including format preferences and build times have no hard cut-off, but according
 to qb-standard, need to be publicly visible and tracked.
@@ -14,31 +15,19 @@ to qb-standard, need to be publicly visible and tracked.
  * [A Production and Development Dependency Standard](#production-and-development-dependencies) (Scored)
  * [Recommended Style](doc/recommended-style.md) (Scored) 
 
-## A Quic Note About Our Current Status
+## A Quic Note About Our Status
 
-While some tools that we use to achieve
-qb-standard like [test-kit](https://github.com/quicbit-js/test-kit) have been 
-made available, others, such as dependency measurement are not ready for publication.
-As we work out practical matters, more tools will be published and details
-will be fleshed out.
+We currently use a combination of tools to achieve qb-standard:
 
-However, we feel it is important to share the standards
-we are following, though enforcement be through clunky and manual processes 
-at the moment.
+* [bithound](https://www.bithound.io/) for dependency analysis
+* [node-tap](http://www.node-tap.org/) for measuring code coverage (using the --coverage options)
+* [test-kit](https://github.com/quicbit-js/test-kit) for data-driven unit tests
+* [ESLint](http://eslint.org/) for static code analysis with custom settings
 
-The 100% 
-test coverage requirement is real and active.  We use tap --coverage option
-to watch coverage with each release.  With the help of 
-[test-kit](https://github.com/quicbit-js/test-kit) and
-with practice, the cost of achieving near 100% coverage on all 
-software has become manageable to a point that it makes sense as a requirement, 
-especially in light of the benefits that it brings requiring less stringency
-and work elsewhere.  [quicbit-js](https://github.com/quicbit-js) has several 
-[examples](https://github.com/quicbit-js/qb-json-tok/blob/master/test.js) of 
-100% code coverage using data-driven testing.
-
-We hope you find this document useful, or at least some of the ideas interesting
-and thought-provoking.
+The scoring is manual and somewhat qualitative at this point, but we are 
+planning to consolidate these checks into a simple and light-weight
+utility.  Please contact us
+if you are interested and might like to help.
 
 # Overview
 
