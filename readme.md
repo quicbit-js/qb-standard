@@ -164,7 +164,7 @@ itself.
   modern machine.
 * A larger project should unit-test-and-build in a few seconds.
 
-When build times get uncontrollably high, we scrutinize expensive tests, and/or 
+When build times get uncomfortably high, we scrutinize expensive tests, and/or 
 make sure the project is broken into smaller and faster-building components.
 Usually, we don't let modules get big in the first place.
 
@@ -207,15 +207,17 @@ qb-standard today with javascript.
 We like this toolset because it encourages modularization and imposes a minimum amount of 
 framework and toolkit to install and test code.
  
-Quicbit currently prefers
+Quicbit currently uses
 
   * [npm](https://docs.npmjs.com/getting-started/what-is-npm)
     * npm [packaging](https://docs.npmjs.com/getting-started/using-a-package.json)
     * npm [scripts](https://docs.npmjs.com/misc/scripts) for build and automation
   * testing via [test-kit](https://github.com/quicbit-js/test-kit), [tape](https://github.com/substack/tape), or 
         [tap](http://www.node-tap.org/)
+  * [bithound](https://www.bithound.io/github/quicbit-js) to report production and development
+    dependencies
    
-This tool list is technically unbounded because you can npm scripts could run 
+This tool list is technically unbounded because npm scripts can run 
 anything.  That being said, being light-weight matters and libraries should only
 apply tools that make a true difference.  A heavy (complex/large) tool has to bring in that much
 more benefit to justify the added weight.
