@@ -95,10 +95,7 @@ along with explanation for the difference.
   per one's preference isn't worth the hassle that can come
   from different users seeing different alignment, nice though that ability is!
   
-* **Use pascalCase for object functions and snake_case for stand-alone functions.**
-  
-  Use pascalCaseForObjectFunctions that access the 'this' 
-  parameter and use_snake_case for other functions.  
+* **Use snake_case for both class and stand-alone function names**
   
   ```js
   class Dog {
@@ -106,10 +103,10 @@ along with explanation for the difference.
           this.breed = breed
           //...
       }
-      chaseTail (radians) {
+      chase_tail (radians) {
           //...
       }
-      fetchStick (stick) {
+      fetch_stick (stick) {
           let dist = object_distance(this, stick) 
           // ...
       }
@@ -125,13 +122,17 @@ along with explanation for the difference.
       create_dog: (breed) => { return new Dog(breed) }
   }
   ```
-  Why? Using snake_case helps with portability to C and Python.
-  Using pascalCase for classes helps with portability to Java
-  and is consistent with popular javascript.
   
-  There is also a readability benefit from being able to 
-  quickly distinguish stand-alone functions from 
-  object functions.
+  In the first version of qb standard, we experimented with having 
+  pascalCase for class-like functions and snake_case for stand-alone functions,
+  but it caused more headaches than expected.  Sticking with just one
+  approach makes coding smoother and refactoring from objects to functions
+  *much* easier.  The warm-and-fuzzy familiarity that mixedCase may
+  give those of us with lots of OO background is just not worth the cost
+  of the headaches that come from switching between conventions.  Just
+  use snake_case and you never have to think about names much.  Porting
+  code into python and C is easy as well.  Modern trends are toward lower case - 
+  it tends to read better and work more simply.
   
   Again, tooling for this is a bit behind, but we feel this is a 
   good standard to make code across several languages more similar,
