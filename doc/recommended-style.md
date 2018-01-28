@@ -95,7 +95,7 @@ along with explanation for the difference.
   per one's preference isn't worth the hassle that can come
   from different users seeing different alignment, nice though that ability is!
   
-* **Use snake_case for both class and stand-alone function names**
+* **Use snake_case for function names**
   
   ```js
   class Dog {
@@ -124,7 +124,7 @@ along with explanation for the difference.
   ```
   
   In the first version of qb standard, we experimented with having 
-  pascalCase for class-like functions and snake_case for stand-alone functions,
+  pascalCase for prototype function names and snake_case for stand-alone function names,
   but it caused more headaches than expected.  Sticking with just one
   approach makes coding smoother and refactoring from objects to functions
   *much* easier.  The warm-and-fuzzy familiarity that mixedCase may
