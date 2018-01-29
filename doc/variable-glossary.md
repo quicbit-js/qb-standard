@@ -143,10 +143,10 @@ against the obscurity of these short names and the more we practice it the easie
 In this example, there is also a good chance that a reader familiar with other
 quicbit functions will quickly recognize
 that function takes an array-like 
-source ([src](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#src-source)) 
+source ([src](https://github.com/quicbit-js/qb-standard/blob/master/doc/variable-glossary.md#src-source)) 
 with an inclusive lower-bound 
-offset ([off](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#off-offset)) and 
-exclusive upper-bound limit ([lim](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#lim-limit)).
+offset ([off](https://github.com/quicbit-js/qb-standard/blob/master/doc/variable-glossary.md#off-offset)) and 
+exclusive upper-bound limit ([lim](https://github.com/quicbit-js/qb-standard/blob/master/doc/variable-glossary.md#lim-limit)).
 
 **Bitmask literals?**  Isn't that heresy?!!  Not to us.  *The most important aspects
 of this function is that it is clearly written, has 100% branch and line test coverage, 
@@ -192,8 +192,8 @@ function repeat_byte (b, dst, off, lim) {
 
 ### off (offset)
 
-Offset into a [src](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#src-source) 
-or [dst](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#dst-destination) 
+Offset into a [src](https://github.com/quicbit-js/qb-standard/blob/master/doc/variable-glossary.md#src-source) 
+or [dst](https://github.com/quicbit-js/qb-standard/blob/master/doc/variable-glossary.md#dst-destination) 
 array-like object to start reading or
 writing data.
 
@@ -208,8 +208,8 @@ function scan (src, off, lim) {
 
 ### lim (limit)
 
-The offset into a [src](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#src-source) 
-or [dst](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#dst-destination) *before which* we stop reading or writing data.
+The offset into a [src](https://github.com/quicbit-js/qb-standard/blob/master/doc/variable-glossary.md#src-source) 
+or [dst](https://github.com/quicbit-js/qb-standard/blob/master/doc/variable-glossary.md#dst-destination) *before which* we stop reading or writing data.
 
 ```js
 function copy (src, off, lim, dst) {
@@ -219,8 +219,8 @@ function copy (src, off, lim, dst) {
 
 ### len (length)
 
-The number of bytes to process in a [src](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#src-source) 
-or [dst](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#dst-destination) array.
+The number of bytes to process in a [src](https://github.com/quicbit-js/qb-standard/blob/master/doc/variable-glossary.md#src-source) 
+or [dst](https://github.com/quicbit-js/qb-standard/blob/master/doc/variable-glossary.md#dst-destination) array.
 
 ```js
 function scan (src, off, len) {
@@ -234,9 +234,9 @@ function scan (src, off, len) {
 So which is it, copy(src, off, **lim**) or copy(src, off, **len**)?
 
 When working with a stacks of calls that operate on array ranges, we usually find
-functions with [lim](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#lim-limit) 
-to be more direct than [len](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#len-length).  On the other hand, 
-functions with the [len](https://github.com/quicbit-js/qb-standard/blob/master/variable-glossary.md#len-length) signature can be simpler when 
+functions with [lim](https://github.com/quicbit-js/qb-standard/blob/master/doc/variable-glossary.md#lim-limit) 
+to be more direct than [len](https://github.com/quicbit-js/qb-standard/blob/master/doc/variable-glossary.md#len-length).  On the other hand, 
+functions with the [len](https://github.com/quicbit-js/qb-standard/blob/master/doc/variable-glossary.md#len-length) signature can be simpler when 
 not already managing arrays and offsets.
 
 ### i, si, di... (array indexes)
