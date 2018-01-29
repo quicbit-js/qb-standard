@@ -16,10 +16,10 @@ signatures and implementations.
 
 Programmers well-versed in OO methodology might suggest replacing 
 parameter conventions like **src**, **off**, and **lim** with objects
-that capture these concepts in methods.  But wrappers introduce the
+that capture and enforce these concepts in methods.  But wrappers introduce the
 burden of wrapping and unwrapping as well as a burden on the reader 
 to learn non-standard and non-trivial types.  Arrays, strings and
-plain objects are preferred for their simplicity,
+plain objects can be preferred for their simplicity,
 transparency and ubiquity.
 
 ## Why so curt?
