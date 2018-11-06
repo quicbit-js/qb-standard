@@ -260,6 +260,34 @@ function repeat (s, dst, off, lim) {
 
 ## General
 
+### opt (options)
+
+We often place optional arguments within a single object called 'opt'.  This
+is placed at the very end of all other arguments.  
+
+Good practice is to put all or very nearly all optional arguments in
+this object rather than use variable length argument lists or force
+users to inject 'null' placeholders.  For example, Douglass 
+Crockford once admitted this API regret*:
+
+    JSON.stringify (value, replacer, space)
+    
+Is very often called using a filler:
+
+    JSON.stringify (obj, null, '  ')
+
+While using var-args may be a tempting fix, var-arg logic is messy and requires
+careful management of argument types.  A simple and effective approach
+is to slurp all optional arguments into an options object:
+
+    JSON.stringify (value, options)
+    
+And the calls become clear / to-the-purpose:
+
+    JSON.stringify (obj, { space: '  ' }) 
+
+* sorry, no citation available.  I heard this in one of his talks and cannot find a reference.
+
 ### ret (return value)
 
 The value that is intended to be returned, (or converted-and-returned 
