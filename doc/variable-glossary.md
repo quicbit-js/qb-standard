@@ -288,12 +288,56 @@ And the calls become clear / to-the-purpose:
 
 * sorry, no citation available.  I heard this in one of his talks and cannot find a reference.
 
-### ret (return value)
+### cb (callback)
+
+'cb' is used for most callbacks used in map/reduce/streams etc.
+
+### fn (function)
+
+'fn' is used as a generic abbreviation for a 'function', as well as a name postfix 
+
+    compare (src1, src2, { compare_fn: function () { ... } }) 
+
+## Tiny Variables and Parameters
+
+### a (array)
+
+If a parameter must be an array or array-buffer and cannot be a sequence, we often use 'arr' or simply 'a'
+to indicate it must be an array with support for bracket-access.
+
+
+### a and b (comparison)
+
+quicbit often uses 'a' and 'b' to represent two generic arguments with roughly equivalent roles:
+
+    function compare (a, b) { return a - b }
+
+### n (number of items)
+
+quicbit sequences often use simply 'n' to signify a number of items to copy, scan, etc.  Typically
+'n' can be negative to indicate quantity from the end of an array or sequence.
+
+### q (quantity of items)
+
+quickbit implementations and private function parameters often use 'q' to signify an absolute quantity of items 
+as opposed to a directional quantity 'n'.
+
+### s (string)
+
+Often we use 's' to represent a generic string in code, similar to 'a' for arrays (strings and arrays
+are in fact very similar and super-common, so it makes sense to use consistent short forms in algorithms).
+
+
+### r or ret (return value)
 
 The value that is intended to be returned, (or converted-and-returned 
-in a final step) is often called 'ret'.
+in a final step) is often called 'ret'.  In one-liners, we will often shorten to 'r'.
 
-### v (value)
+### k or key
+
+When using maps or objects, keys are often abbreviated to 'k' and corresponding values to 'v'
+
+### v or val (value)
 
 A common choice for an input value that may be a byte or integer or string...
 
@@ -309,6 +353,8 @@ function repeat (v, dst, off, lim) {
 }
 ```
 
+'v' is also often used for generic object values along with 'k' for keys.
+
 ### s or str (string)
 
 For short processing functions which clearly take a string, we often use 's'.
@@ -318,6 +364,6 @@ function padright (s, l) { while(s.length < l) s = s + ' '; return s }
 function padleft  (s, l) { while(s.length < l) s = ' ' + s; return s }
 ```
 
-When 's' seems a too short, 'str' is an alternative.
+When 's' seems a too short, 'str' is an alternative.  'str' is also the quicbit name for string types.
 
 
