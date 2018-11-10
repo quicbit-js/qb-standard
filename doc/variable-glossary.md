@@ -258,6 +258,13 @@ function repeat (s, dst, off, lim) {
 }
 ```
 
+## Streams
+
+### enc (encoding)
+
+A string encoding.  Currently 'utf8' is the only format supported and 'buffer' is used as a special indicator for object streams,
+just as it is in the node streams API.  When creating a quicbit transform object, opt.enc specifies the *output* format. 
+
 ## General
 
 ### opt (options)
